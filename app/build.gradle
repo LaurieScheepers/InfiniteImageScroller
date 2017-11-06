@@ -1,0 +1,162 @@
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        // Normal things
+        applicationId "laurcode.com.infiniteimagescroller"
+        minSdkVersion 19        // Min SDK is KitKat (thus this app is supported on ~90% of devices)
+        targetSdkVersion 26     // Target SDK should always be the latest - currently Android 8.0.0 (Oreo)
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Build config fields used across the app
+        buildConfigField("boolean", "RELEASE", "false") // RELEASE config field - default is false, as debug build type is the default
+
+        vectorDrawables.useSupportLibrary = true    // We use vectors as resources in this app
+    }
+
+    // Android Data Binding! (https://developer.android.com/topic/libraries/data-binding/index.html)
+    dataBinding {
+        enabled = true
+    }
+
+    // Specify compiler to be for Java 8, for all the goodness contained there :)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // Build types for the app. As this is just a demo app, we only have two - debug and release, and I'm not going to add application id suffixes
+    buildTypes {
+
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            useProguard true
+
+            buildConfigField("boolean", "RELEASE", "true")  // This is a release build!
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            debuggable true
+            useProguard false
+        }
+    }
+
+    productFlavors {
+        // Here one can add "flavors", customizing a build for a specific purpose (like different app application id's)
+        // Commonly used for "whitelabel" apps. But not required here.
+    }
+}
+
+repositories {
+    mavenCentral()
+
+    // Maven repo for Fabric
+    maven {
+        url 'https://maven.fabric.io/public'
+    }
+
+    // Maven repo for Stetho-Realm
+    maven {
+        url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
+    }
+
+    // Maven repo for snapshots on sonatype
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+
+    // Include any jars in the libs folder if there are any (of which there are none for this demo app)
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Normal support library stuff auto-generated when starting a new project PLUS a few others, like design and card view
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation "com.android.support:support-compat:26.1.0"
+    implementation 'com.android.support:cardview-v7:26.1.0'
+
+    // Normal test stuff, junit and espresso, auto-generated when starting a new project.
+    // But for the purposes of this project, I am not going to include any tests.
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs'
+    })
+
+    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+        transitive = true;
+    }
+
+    // Timber, for logging
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+
+    // Butterknife, for view binding
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // Stetho by Facebook, a debug bridge for Android apps, enabling the powerful Chrome Developer Tools
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+
+    // Stetho-Realm, a module enabling us to view Realm data in Stetho
+    implementation 'com.uphyca:stetho_realm:2.1.0'
+
+    // Retrofit, used as an HTTP client
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+
+    // RxJava2 Java and Android-specific bindings
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+
+    // Retrofit 2 adapter for RxJava 2
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+
+    // GSON
+    implementation 'com.google.code.gson:gson:2.8.0'
+
+    // GSON converter, used to serialize to and from JSON
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    // OKHttp logging interceptor, to have detailed logs about API requests and responses
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+
+    // Leakcanary by Square, a memory leak detection library
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6-SNAPSHOT'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6-SNAPSHOT'
+
+    // Generates classes containing the names of a RealmObject's fields
+    annotationProcessor 'dk.ilios:realmfieldnameshelper:1.1.1'
+
+    // Eventbus, as a way to pass events to any anonymous listener. Especially useful for communicating between threads
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    // Binding collection adapter. Provides an easy way to bind collections to list views and recycler views
+    implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.2.0'
+    implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.2.0'
+
+    // Glide, the best image loading library
+    implementation 'com.github.bumptech.glide:glide:4.1.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
+
+    // Facebook's Shimmer library, shows a shimmer animation when something is loading
+    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
+
+    // KenBurnsView, for slowly panning images, creating the Ken Burns effect
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+}

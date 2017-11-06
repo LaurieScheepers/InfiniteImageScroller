@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6d4c41</color>
+    <color name="colorPrimaryDark">#4e342e</color>
+    <color name="colorAccent">#b87333</color>
+
+    <!-- Nice colors! Some of these are material colors, others not, who cares, as long as they look nice -->
+    <color name="copper">@color/colorAccent</color>
+    <color name="light_blue">#81d4Fa</color>
+    <color name="fuchsia">#ff0080</color>
+    <color name="mint">#98ff98</color>
+    <color name="yellow_pleasing">#fff176</color>
+
+</resources>
