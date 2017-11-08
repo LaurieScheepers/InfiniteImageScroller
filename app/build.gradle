@@ -17,6 +17,8 @@ android {
 
         // Build config fields used across the app
         buildConfigField("boolean", "RELEASE", "false") // RELEASE config field - default is false, as debug build type is the default
+        buildConfigField("String", "500_PX_CONSUMER_KEY", '"YoSDf9dO2YaTIAbZ6SSmYBJajTZbBO56VrQiJJBq"') // In an actual production app, this key would ideally already be encrypted
+        buildConfigField("String", "500_PX_CONSUMER_SECRET", '"BU78cIbsVtfcupCMDDc8oHXmGWqbPudQuJmGBmdE"') // See above comment
 
         vectorDrawables.useSupportLibrary = true    // We use vectors as resources in this app
     }
@@ -100,7 +102,7 @@ dependencies {
     })
 
     compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
-        transitive = true;
+        transitive = true
     }
 
     // Timber, for logging

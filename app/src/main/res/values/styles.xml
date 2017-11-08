@@ -9,7 +9,7 @@
     </style>
 
     <!-- SplashActivity is full screen (with no status bar and action bar) -->
-    <style name="LoadingActivityTheme" parent="AppTheme">
+    <style name="SplashActivityTheme" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
