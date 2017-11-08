@@ -23,5 +23,5 @@ public interface MobileApi {
      * @return the observable containing the FreshestPhotos DB model object
      */
     @GET("photos")
-    Observable<Response<FreshestPhotos>> getFreshestPhotos(@Query("consumer_key") @NonNull String consumerKey);
+    Observable<Response<FreshestPhotos>> getFreshestPhotos(@Query("consumer_key") @NonNull String consumerKey, @Query("feature") String feature, @Query("page") Integer page);
 }

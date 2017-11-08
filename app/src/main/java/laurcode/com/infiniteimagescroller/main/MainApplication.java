@@ -12,6 +12,8 @@ import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import laurcode.com.infiniteimagescroller.BuildConfig;
+import laurcode.com.infiniteimagescroller.models.Category;
+import laurcode.com.infiniteimagescroller.models.LicenseType;
 import timber.log.Timber;
 
 /**
@@ -69,5 +71,9 @@ public class MainApplication extends Application {
 
             LeakCanary.install(this);
         }
+
+        // Enum initialisation
+        LicenseType.addLicenseTypesToMap();
+        Category.addCategoriesToMap();
     }
 }

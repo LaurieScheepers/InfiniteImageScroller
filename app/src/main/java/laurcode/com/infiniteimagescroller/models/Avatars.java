@@ -15,14 +15,14 @@ public class Avatars extends RealmObject {
 
     @SerializedName("default")
     @Expose
-    private DefaultAvatar _default;
-    @SerializedName("large")
+    private DefaultAvatar _default; // default is reserverd keyword in java 8, so cannot call it just that, hence the "serializedName" annotation
+
     @Expose
     private LargeAvatar large;
-    @SerializedName("small")
+
     @Expose
     private SmallAvatar small;
-    @SerializedName("tiny")
+
     @Expose
     private TinyAvatar tiny;
 

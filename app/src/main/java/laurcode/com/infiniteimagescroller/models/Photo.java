@@ -108,7 +108,7 @@ public class Photo {
     public String highestRatingDate;
 
     @Expose
-    public int licenseType; // TODO define LicenseType enum
+    public int licenseType;
 
     @Expose
     public int converted; // Apparently deprecated
