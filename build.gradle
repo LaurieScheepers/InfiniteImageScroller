@@ -14,8 +14,9 @@ buildscript {
             url 'https://oss.sonatype.org/content/repositories/snapshots/'
         }
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha01'
+        classpath 'com.android.tools.build:gradle:3.1.0-alpha02'
 
         // Realm, the best mobile device database (at least IMHO)
         classpath "io.realm:realm-gradle-plugin:4.1.1"

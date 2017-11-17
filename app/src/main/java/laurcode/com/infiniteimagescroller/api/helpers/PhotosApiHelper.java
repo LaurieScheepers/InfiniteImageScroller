@@ -47,9 +47,19 @@ public class PhotosApiHelper {
                     return;
                 }
 
-                // Success!
-                listener.onSuccess();
+                if (freshestPhotosResponse.errorBody() != null) {
+                    // There is an error body in the API response - so notify the listener
+                    listener.onError();
 
+                    return;
+                }
+
+                FreshestPhotos freshestPhotos = freshestPhotosResponse.body();
+
+                if (freshestPhotos != null) {
+                    // Success! Notify the listener
+                    listener.onSuccess();
+                }
             }
 
             @Override

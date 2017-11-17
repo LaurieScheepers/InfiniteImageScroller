@@ -90,4 +90,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+
+    <!-- The company name -->
+    <string name="company_name">LaurCode</string>
 </resources>

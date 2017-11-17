@@ -5,6 +5,7 @@ import com.google.gson.annotations.Expose;
 import java.util.List;
 
 import io.realm.RealmList;
+import io.realm.RealmObject;
 
 /**
  * Model class representing a Photo object
@@ -15,7 +16,7 @@ import io.realm.RealmList;
  */
 
 @SuppressWarnings("WeakerAccess")
-public class Photo {
+public class Photo extends RealmObject {
 
     @Expose
     public int id;

@@ -2,4 +2,34 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <!-- Common Sizes -->
+    <dimen name="padding_dot">1dp</dimen>
+    <dimen name="padding_tiny">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_big">12dp</dimen>
+    <dimen name="padding_bigger">14dp</dimen>
+    <dimen name="padding_huge">16dp</dimen>
+    <dimen name="padding_huger">24dp</dimen>
+    <dimen name="padding_massive">32dp</dimen>
+    <dimen name="padding_massiver">48dp</dimen>
+    <dimen name="padding_titanic">64dp</dimen>
+
+    <!-- Margins -->
+    <dimen name="margin_dot">1dp</dimen>
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_big">12dp</dimen>
+    <dimen name="margin_bigger">14dp</dimen>
+    <dimen name="margin_huge">16dp</dimen>
+    <dimen name="margin_huger">24dp</dimen>
+    <dimen name="margin_massive">32dp</dimen>
+    <dimen name="margin_massiver">48dp</dimen>
+    <dimen name="margin_titanic">64dp</dimen>
+
+    <!-- Cards -->
+    <dimen name="card_radius">2dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
 </resources>

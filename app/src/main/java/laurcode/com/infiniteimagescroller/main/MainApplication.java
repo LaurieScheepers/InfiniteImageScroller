@@ -1,12 +1,15 @@
 package laurcode.com.infiniteimagescroller.main;
 
 import android.app.Application;
+import android.databinding.BaseObservable;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
+
+import java.util.HashMap;
 
 import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
@@ -23,6 +26,11 @@ import timber.log.Timber;
  */
 
 public class MainApplication extends Application {
+
+    /**
+     * An in-memory cache of view model objects. This will persist app-wide
+     */
+    private static HashMap<Class, BaseObservable> viewModels;
 
     @Override
     public void onCreate() {
@@ -75,5 +83,12 @@ public class MainApplication extends Application {
         // Enum initialisation
         LicenseType.addLicenseTypesToMap();
         Category.addCategoriesToMap();
+
+        // ViewModels initialisation
+        viewModels = new HashMap<>();
+    }
+
+    public static void registerViewModel(Class clazz, BaseObservable viewModel) {
+        viewModels.put(clazz, viewModel);
     }
 }

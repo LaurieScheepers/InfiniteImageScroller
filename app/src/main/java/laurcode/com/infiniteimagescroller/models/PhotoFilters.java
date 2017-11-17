@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 
 import java.util.List;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 /**
@@ -18,7 +19,7 @@ public class PhotoFilters extends RealmObject {
     private boolean category;
 
     @Expose
-    private List<Integer> exclude;
+    private RealmList<Integer> exclude;
 
     public boolean isCategory() {
         return category;
@@ -32,7 +33,7 @@ public class PhotoFilters extends RealmObject {
         return exclude;
     }
 
-    public void setExclude(List<Integer> exclude) {
+    public void setExclude(RealmList<Integer> exclude) {
         this.exclude = exclude;
     }
 }

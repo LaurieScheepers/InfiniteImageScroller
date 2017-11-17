@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <!-- NOTE: Content description warning is ignored here as this is a demo app: for production apps it must be there for accessibility reasons -->
+        <ImageView
+            android:id="@+id/ape_to_digital_man_image"
+            android:background="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:imageRes="@{viewModel.evolutionImageResId}"
+            tools:src="@drawable/man_digital_final"
+            tools:ignore="ContentDescription" />
+
+        <com.hanks.htextview.typer.TyperTextView
+            android:id="@+id/company_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_huge"
+            android:text="@string/company_name"
+            android:visibility="gone"
+            app:charIncrease="1"
+            app:typerSpeed="80"
+            tools:visibility="visible"
+            style="@style/TextAppearance.Heading.Large"
+            android:layout_below="@id/ape_to_digital_man_image"/>
+
+        <com.hanks.htextview.typer.TyperTextView
+            android:id="@+id/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/company_name"
+            android:text="@string/app_name"
+            android:visibility="gone"
+            app:charIncrease="1"
+            app:typerSpeed="80"
+            tools:visibility="visible"
+            style="@style/TextAppearance.Caption.Large" />
+
+    </RelativeLayout>
+
+</layout>

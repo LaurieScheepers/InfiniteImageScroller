@@ -2,6 +2,8 @@ package laurcode.com.infiniteimagescroller.models;
 
 import com.google.gson.annotations.Expose;
 
+import io.realm.RealmObject;
+
 /**
  * Model object class representing the "default" object contained in the base freshest photos response
  * <p>
@@ -9,7 +11,7 @@ import com.google.gson.annotations.Expose;
  */
 
 @SuppressWarnings("WeakerAccess")
-public class DefaultAvatar {
+public class DefaultAvatar extends RealmObject {
 
     @Expose
     public String https;

@@ -15,12 +15,14 @@ import laurcode.com.infiniteimagescroller.models.FreshestPhotos;
 public class PhotosDao {
 
     /**
-     * Saves the freshest photos to the DB
+     * Saves the freshest photos to the DB using the supplied instance of Realm. This method blocks so please use it on a background thread.
+     * NOTE: This method does not close Realm after use, so please take care to close it when done.
+     * @param realm the Realm instance supplied
      * @param freshestPhotos the freshest photos DB model object
      */
     @WorkerThread
-    public void saveFreshestPhotosSync(@NonNull FreshestPhotos freshestPhotos) {
-        // TODO implement
+    public void saveFreshestPhotosSync(@NonNull Realm realm, @NonNull FreshestPhotos freshestPhotos) {
+        realm.executeTransaction(realm1 -> realm1.copyToRealmOrUpdate(freshestPhotos));
     }
 
     /**

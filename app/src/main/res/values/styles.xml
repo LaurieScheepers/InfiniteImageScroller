@@ -1,7 +1,7 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Base application theme. No action bar included as we will use manually add a toolbar instead-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -17,5 +17,32 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TextAppearance.Heading.Large" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@color/charcoal_text_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Heading.Medium" parent="TextAppearance.Heading.Large">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="TextAppearance.Heading.Small" parent="TextAppearance.Heading.Medium">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Large" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/grey_text_caption</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Medium" parent="TextAppearance.Caption.Large">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Small" parent="TextAppearance.Caption.Medium">
+        <item name="android:textSize">12sp</item>
+    </style>
 
 </resources>

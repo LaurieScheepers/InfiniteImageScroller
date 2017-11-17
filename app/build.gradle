@@ -101,7 +101,7 @@ dependencies {
         exclude group: 'com.google.code.findbugs'
     })
 
-    compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
+    implementation('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
         transitive = true
     }
 
@@ -161,4 +161,11 @@ dependencies {
 
     // KenBurnsView, for slowly panning images, creating the Ken Burns effect
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
+
+    // Rebound by Facebook, for "spring" physics effects
+    implementation 'com.facebook.rebound:rebound:0.3.8'
+
+    // HTextView animations, by Tom Hanks (not only a good actor it seems)
+    implementation "com.hanks:htextview-base:0.1.2"
+    implementation "com.hanks:htextview-typer:0.1.2"    // I only want the type-writer effect
 }
