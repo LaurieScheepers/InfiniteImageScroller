@@ -70,6 +70,11 @@ repositories {
         url 'https://maven.fabric.io/public'
     }
 
+    // Maven repo for Stetho-Realm
+    maven {
+        url 'https://github.com/WickeDev/stetho-realm/raw/master/maven-repo'
+    }
+
     // Maven repo for snapshots on sonatype
     maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots/'
@@ -106,6 +111,12 @@ dependencies {
     // Butterknife, for view binding
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // Stetho by Facebook, a debug bridge for Android apps, enabling the powerful Chrome Developer Tools
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+
+    // Stetho-Realm, a module enabling us to view Realm data in Stetho
+    implementation 'com.uphyca:stetho_realm:2.2.1'
 
     // Retrofit, used as an HTTP client
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
