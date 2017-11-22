@@ -4,8 +4,10 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,6 +30,7 @@ import laurcode.com.infiniteimagescroller.rx.listeners.ImageDrawableFaderListene
 import laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel;
 import laurcode.com.infiniteimagescroller.sync.SyncService;
 import laurcode.com.infiniteimagescroller.util.ViewUtil;
+import laurcode.com.infiniteimagescroller.util.callbacks.FadeInAnimationCompletedCallback;
 import timber.log.Timber;
 
 /**
@@ -49,6 +52,14 @@ public class SplashActivity extends AppCompatActivity {
     TextView companyNameTextView;
     @BindView(R.id.app_name)
     TextView appNameTextView;
+    @BindView(R.id.black_friday_click_container)
+    LinearLayout blackFridayClickContainer;
+    @BindView(R.id.black_friday_hint)
+    TextView blackFridayHint;
+    @BindView(R.id.black_friday_hint_hint)
+    TextView blackFridayHintHint;
+    @BindView(R.id.black_friday_hint_image)
+    ImageView blackFridayHintImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,7 +80,9 @@ public class SplashActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         // No image must be visible initially
-        evolutionImage.setVisibility(View.GONE);
+        if (ViewUtil.isViewVisible(evolutionImage)) {
+            evolutionImage.setVisibility(View.GONE);
+        }
 
         // Start le nice animations
         startAnimations();
@@ -90,8 +103,35 @@ public class SplashActivity extends AppCompatActivity {
         new ImageDrawableFader().setDrawables(drawables).start(evolutionImage, new ImageDrawableFaderListener() {
             @Override
             public void onComplete() {
-                // Now fade in the company name and app name
-                ViewUtil.fadeViewIn(companyNameTextView, () -> ViewUtil.fadeViewIn(appNameTextView));
+                // Now fade in the company name, app name, black friday hint & image, in that logical order (top to bottom).
+                ViewUtil.fadeViewIn(companyNameTextView,
+                        () -> ViewUtil.fadeViewIn(appNameTextView,
+                                new FadeInAnimationCompletedCallback() {
+                                    @Override
+                                    public void onCompleted() {
+
+                                        TransitionManager.beginDelayedTransition(blackFridayClickContainer);
+
+                                        blackFridayHint.setVisibility(View.VISIBLE);
+                                        blackFridayHintHint.setVisibility(View.VISIBLE);
+                                        blackFridayHintImage.setVisibility(View.VISIBLE);
+
+                                        // TODO should I use TransitionManager or my own fade in animations? Decide tomorrow
+//                                        ViewUtil.fadeViewIn(blackFridayHint,
+//                                                new FadeInAnimationCompletedCallback() {
+//                                                    @Override
+//                                                    public void onCompleted() {
+//                                                        ViewUtil.fadeViewIn(blackFridayHintHint,
+//                                                                new FadeInAnimationCompletedCallback() {
+//                                                                    @Override
+//                                                                    public void onCompleted() {
+//                                                                        ViewUtil.fadeViewIn(blackFridayHintImage);
+//                                                                    }
+//                                                                });
+//                                                    }
+//                                                });
+                                    }
+                                }));
             }
 
             @Override

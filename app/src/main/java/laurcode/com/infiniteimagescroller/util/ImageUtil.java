@@ -2,7 +2,6 @@ package laurcode.com.infiniteimagescroller.util;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
-import android.view.View;
 import android.widget.ImageView;
 
 import laurcode.com.infiniteimagescroller.util.callbacks.FadeInAnimationCompletedCallback;
@@ -25,12 +24,20 @@ public class ImageUtil {
                                            @NonNull final FadeInAnimationCompletedCallback fadeInAnimationCompletedCallback) {
 
         // The image view must be not visible initially
-        imageView.setVisibility(View.GONE);
+        if (ViewUtil.isViewVisible(imageView)) {
+            ViewUtil.fadeViewOut(imageView, fadeOutTime, () -> {
+                // Load the image as a resource
+                imageView.setImageResource(resId);
 
-        // Load the image as a resource
-        imageView.setImageResource(resId);
+                // And fade it in
+                ViewUtil.fadeViewIn(imageView, fadeInTime, fadeInAnimationCompletedCallback);
+            });
+        } else {
+            // Load the image as a resource
+            imageView.setImageResource(resId);
 
-        // And fade it in
-        ViewUtil.fadeViewIn(imageView, fadeInTime, fadeInAnimationCompletedCallback);
+            // And fade it in
+            ViewUtil.fadeViewIn(imageView, fadeInTime, fadeInAnimationCompletedCallback);
+        }
     }
 }

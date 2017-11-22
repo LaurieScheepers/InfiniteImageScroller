@@ -58,6 +58,14 @@
             tools:visibility="visible"
             style="@style/TextAppearance.Caption.Large" />
 
+        <include
+            android:id="@+id/black_friday_section"
+            layout="@layout/black_friday_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
+            android:layout_below="@id/app_name"/>
+
     </RelativeLayout>
 
 </layout>

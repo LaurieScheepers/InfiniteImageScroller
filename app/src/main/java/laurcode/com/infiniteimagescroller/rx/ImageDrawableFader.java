@@ -30,8 +30,8 @@ public class ImageDrawableFader {
     private ImageDrawableFaderListener listener;
 
     // Feel free to tweak these times according to your needs and desires
-    public static final int FADE_IN_TIME = 500;
-    public static final int FADE_OUT_TIME = 500;
+    public static final int FADE_IN_TIME = 850;
+    public static final int FADE_OUT_TIME = 850;
     public static final int WAIT_TIME = 500;
 
     private List<Integer> drawableResIds = new ArrayList<>();

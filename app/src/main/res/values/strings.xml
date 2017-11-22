@@ -97,4 +97,5 @@
     <!-- Black Friday hint -->
     <string name="black_friday_hint">Pssst, <b>Black Friday</b> is around the corner</string>
     <string name="black_friday_hint_hint">Click to take a peek</string>
+    <string name="content_description_image_black_friday_deals">This image is what you press if you want to see the Black Friday deals.</string>
 </resources>
