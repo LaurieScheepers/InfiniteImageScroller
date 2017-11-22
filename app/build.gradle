@@ -168,4 +168,8 @@ dependencies {
     // HTextView animations, by Tom Hanks (not only a good actor it seems)
     implementation "com.hanks:htextview-base:0.1.2"
     implementation "com.hanks:htextview-typer:0.1.2"    // I only want the type-writer effect
+
+    // Easy Flip View, for views that can have two sides (better than Android's way of flipping cards)
+    implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:1.0.2'
+
 }

@@ -30,9 +30,9 @@ public class ImageDrawableFader {
     private ImageDrawableFaderListener listener;
 
     // Feel free to tweak these times according to your needs and desires
-    public static final int FADE_IN_TIME = 850;
-    public static final int FADE_OUT_TIME = 850;
-    public static final int WAIT_TIME = 500;
+    public static final int FADE_IN_TIME = 450;
+    public static final int FADE_OUT_TIME = 450;
+    public static final int WAIT_TIME = 250;
 
     private List<Integer> drawableResIds = new ArrayList<>();
 
@@ -74,7 +74,7 @@ public class ImageDrawableFader {
         viewToWorkOn.postDelayed(() -> ImageUtil.loadImageWithFadeIn(viewToWorkOn,
                 drawableResIds.get(currentIndex), FADE_IN_TIME, FADE_OUT_TIME, () -> viewToWorkOn.postDelayed(() -> {
                     currentIndex++;
-                    doFadeInWaitFadeOut();
-        }, WAIT_TIME)), WAIT_TIME);
+                    ImageDrawableFader.this.doFadeInWaitFadeOut();
+                }, WAIT_TIME)), WAIT_TIME >> 1);
     }
 }

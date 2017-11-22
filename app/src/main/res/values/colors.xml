@@ -31,6 +31,9 @@
     <color name="grey_900">#212121</color>
     <color name="grey_overlay">#7c000000</color>
 
+    <!-- Material blues -->
+    <color name="blue_500">#03a9f4</color>
+
     <!-- Placeholder bg color for image -->
     <color name="placeholder_bg_color">#e1e4eb</color>
 

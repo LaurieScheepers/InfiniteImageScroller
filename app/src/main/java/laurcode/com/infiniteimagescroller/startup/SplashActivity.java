@@ -1,15 +1,18 @@
 package laurcode.com.infiniteimagescroller.startup;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -30,7 +33,6 @@ import laurcode.com.infiniteimagescroller.rx.listeners.ImageDrawableFaderListene
 import laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel;
 import laurcode.com.infiniteimagescroller.sync.SyncService;
 import laurcode.com.infiniteimagescroller.util.ViewUtil;
-import laurcode.com.infiniteimagescroller.util.callbacks.FadeInAnimationCompletedCallback;
 import timber.log.Timber;
 
 /**
@@ -52,14 +54,27 @@ public class SplashActivity extends AppCompatActivity {
     TextView companyNameTextView;
     @BindView(R.id.app_name)
     TextView appNameTextView;
-    @BindView(R.id.black_friday_click_container)
-    LinearLayout blackFridayClickContainer;
+    @BindView(R.id.black_friday_section)
+    EasyFlipView blackFridayFlipView;
+    @BindView(R.id.view_black_friday_section_front)
+    LinearLayout blackFridaySectionFront;
+    @BindView(R.id.view_black_friday_section_back)
+    LinearLayout blackFridaySectionBack;
     @BindView(R.id.black_friday_hint)
     TextView blackFridayHint;
     @BindView(R.id.black_friday_hint_hint)
     TextView blackFridayHintHint;
     @BindView(R.id.black_friday_hint_image)
     ImageView blackFridayHintImage;
+    @BindView(R.id.black_friday_deals_heading)
+    TextView blackFridayDealsHeading;
+    @BindView(R.id.black_friday_deals_link)
+    TextView blackFridayDealsLink;
+    @BindView(R.id.black_friday_link_hint)
+    TextView blackFridayLinkHint;
+
+
+    public static final String BLACK_FRIDAY_URL = "www.superbalist.com/showdown/";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,8 +99,36 @@ public class SplashActivity extends AppCompatActivity {
             evolutionImage.setVisibility(View.GONE);
         }
 
+        splashViewModel.setBlackFridayUrl(BLACK_FRIDAY_URL);
+
         // Start le nice animations
         startAnimations();
+
+        // Click listeners for black friday section
+        blackFridaySectionFront.setOnClickListener(v -> {
+            blackFridayFlipView.flipTheView();
+
+            blackFridayDealsHeading.setVisibility(View.VISIBLE);
+            blackFridayDealsLink.setVisibility(View.VISIBLE);
+            blackFridayLinkHint.setVisibility(View.VISIBLE);
+
+            blackFridayDealsLink.setOnClickListener(v1 -> {
+                // Launch the browser
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(BLACK_FRIDAY_URL));
+                startActivity(i);
+            });
+        });
+
+        blackFridaySectionBack.setOnClickListener(v -> {
+            blackFridayFlipView.flipTheView();
+
+            blackFridayFlipView.postDelayed(() -> {
+                blackFridayDealsHeading.setVisibility(View.INVISIBLE);
+                blackFridayDealsLink.setVisibility(View.INVISIBLE);
+                blackFridayLinkHint.setVisibility(View.INVISIBLE);
+            }, 400);
+        });
     }
 
     private void startAnimations() {
@@ -105,33 +148,18 @@ public class SplashActivity extends AppCompatActivity {
             public void onComplete() {
                 // Now fade in the company name, app name, black friday hint & image, in that logical order (top to bottom).
                 ViewUtil.fadeViewIn(companyNameTextView,
-                        () -> ViewUtil.fadeViewIn(appNameTextView,
-                                new FadeInAnimationCompletedCallback() {
-                                    @Override
-                                    public void onCompleted() {
+                        () -> {
+                            companyNameTextView.animate();
 
-                                        TransitionManager.beginDelayedTransition(blackFridayClickContainer);
+                            ViewUtil.fadeViewIn(appNameTextView,
+                                    () -> {
+                                        appNameTextView.animate();
 
-                                        blackFridayHint.setVisibility(View.VISIBLE);
-                                        blackFridayHintHint.setVisibility(View.VISIBLE);
-                                        blackFridayHintImage.setVisibility(View.VISIBLE);
-
-                                        // TODO should I use TransitionManager or my own fade in animations? Decide tomorrow
-//                                        ViewUtil.fadeViewIn(blackFridayHint,
-//                                                new FadeInAnimationCompletedCallback() {
-//                                                    @Override
-//                                                    public void onCompleted() {
-//                                                        ViewUtil.fadeViewIn(blackFridayHintHint,
-//                                                                new FadeInAnimationCompletedCallback() {
-//                                                                    @Override
-//                                                                    public void onCompleted() {
-//                                                                        ViewUtil.fadeViewIn(blackFridayHintImage);
-//                                                                    }
-//                                                                });
-//                                                    }
-//                                                });
-                                    }
-                                }));
+                                        ViewUtil.fadeViewIn(blackFridayHint);
+                                        ViewUtil.fadeViewIn(blackFridayHintHint);
+                                        ViewUtil.fadeViewIn(blackFridayHintImage);
+                                    });
+                        });
             }
 
             @Override

@@ -23,7 +23,7 @@
             android:id="@+id/ape_to_digital_man_image"
             android:background="@android:color/white"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="120dp"
             android:layout_centerInParent="true"
             android:visibility="gone"
             tools:visibility="visible"
@@ -60,10 +60,11 @@
 
         <include
             android:id="@+id/black_friday_section"
-            layout="@layout/black_friday_text"
+            layout="@layout/view_black_friday_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_big"
+            app:viewModel="@{viewModel}"
+            android:layout_marginTop="@dimen/margin_massiver"
             android:layout_below="@id/app_name"/>
 
     </RelativeLayout>

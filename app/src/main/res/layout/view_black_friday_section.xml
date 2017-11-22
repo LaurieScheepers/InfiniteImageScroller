@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--suppress XmlUnusedNamespaceDeclaration -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel" />
+
+    </data>
+
+    <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:flipOnTouch="false"
+        app:flipEnabled="true"
+        app:flipDuration="400">
+
+        <include
+            android:id="@+id/view_black_friday_section_back"
+            layout="@layout/view_black_friday_section_back"
+            app:viewModel="@{viewModel}"
+            android:visibility="invisible"/>
+
+        <include
+            android:id="@+id/view_black_friday_section_front"
+            layout="@layout/view_black_friday_section_front"
+            app:viewModel="@{viewModel}"
+            android:visibility="visible"/>
+
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+</layout>
+

@@ -18,6 +18,9 @@ public class SplashViewModel extends BaseObservable {
     public @DrawableRes int evolutionImageResId;
 
     @Bindable
+    public String blackFridayUrl;
+
+    @Bindable
     public int getEvolutionImageResId() {
         return evolutionImageResId;
     }
@@ -25,5 +28,15 @@ public class SplashViewModel extends BaseObservable {
     public void setEvolutionImageResId(@DrawableRes int evolutionImageResId) {
         this.evolutionImageResId = evolutionImageResId;
         notifyPropertyChanged(BR.evolutionImageResId);
+    }
+
+    @Bindable
+    public String getBlackFridayUrl() {
+        return blackFridayUrl;
+    }
+
+    public void setBlackFridayUrl(String blackFridayUrl) {
+        this.blackFridayUrl = blackFridayUrl;
+        notifyPropertyChanged(BR.blackFridayUrl);
     }
 }
