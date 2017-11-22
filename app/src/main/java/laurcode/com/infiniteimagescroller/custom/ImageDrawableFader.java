@@ -1,4 +1,4 @@
-package laurcode.com.infiniteimagescroller.rx;
+package laurcode.com.infiniteimagescroller.custom;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-import laurcode.com.infiniteimagescroller.rx.listeners.ImageDrawableFaderListener;
+import laurcode.com.infiniteimagescroller.custom.listeners.ImageDrawableFaderListener;
 import laurcode.com.infiniteimagescroller.util.ImageUtil;
 import timber.log.Timber;
 

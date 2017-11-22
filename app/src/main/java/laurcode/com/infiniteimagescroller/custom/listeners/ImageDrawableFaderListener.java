@@ -1,4 +1,4 @@
-package laurcode.com.infiniteimagescroller.rx.listeners;
+package laurcode.com.infiniteimagescroller.custom.listeners;
 
 /**
  * A listener that will invoke callbacks when the cascading fade-in-fade-out operations is complete, or it failed.

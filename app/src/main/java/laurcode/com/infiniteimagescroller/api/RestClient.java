@@ -6,6 +6,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -25,7 +27,7 @@ public class RestClient {
     /**
      * The base url used for API comms
      */
-    public static final String BASE_URL = "https://500px.com/"; // NOTE: Must end with "/" - this is the standard way of defining a base url
+    public static final String BASE_URL = "https://api.500px.com/v1/"; // NOTE: Must end with "/" - this is the standard way of defining a base url
 
     private static RestClient restClient;
     private static Gson gson;
@@ -58,6 +60,8 @@ public class RestClient {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient client = new OkHttpClient.Builder()
+                .readTimeout(30000, TimeUnit.MILLISECONDS)
+                .writeTimeout(30000, TimeUnit.MILLISECONDS)
                 .addInterceptor(loggingInterceptor)
                 .build();
 
