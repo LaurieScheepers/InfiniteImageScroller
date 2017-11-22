@@ -23,6 +23,7 @@ import java.util.Arrays;
 
 import laurcode.com.infiniteimagescroller.R;
 import laurcode.com.infiniteimagescroller.main.GlideApp;
+import laurcode.com.infiniteimagescroller.util.ViewUtil;
 import timber.log.Timber;
 
 /**
@@ -48,8 +49,16 @@ public class DataBindingAdapters {
 
     @BindingAdapter("imageRes")
     public static void loadImageRes(ImageView view, @DrawableRes int resId) {
-        // Load the image as a resource
-        view.setImageResource(resId);
+        if (ViewUtil.isViewVisible(view)) {
+            ViewUtil.fadeViewOut(view, () -> {
+                // Load the image as a resource
+                view.setImageResource(resId);
+                ViewUtil.fadeViewIn(view);
+            });
+        } else {
+            view.setImageResource(resId);
+            ViewUtil.fadeViewIn(view);
+        }
     }
 
     /**

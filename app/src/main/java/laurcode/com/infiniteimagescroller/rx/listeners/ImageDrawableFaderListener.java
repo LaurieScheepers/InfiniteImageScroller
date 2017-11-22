@@ -6,8 +6,8 @@ package laurcode.com.infiniteimagescroller.rx.listeners;
  * Created by lauriescheepers on 2017/11/17.
  */
 
-public interface ImageDrawableFadeEmitterListener {
+public interface ImageDrawableFaderListener {
     void onComplete();
 
-    void onError();
+    void onError(Exception e);
 }

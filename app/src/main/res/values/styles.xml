@@ -45,4 +45,17 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="TextAppearance.Body.Large" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/grey_text_body</item>
+    </style>
+
+    <style name="TextAppearance.Body.Medium" parent="TextAppearance.Body.Large">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextAppearance.Body.Small" parent="TextAppearance.Body.Medium">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

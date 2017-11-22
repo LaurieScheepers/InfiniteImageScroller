@@ -6,7 +6,11 @@
     package="laurcode.com.infiniteimagescroller">
 
     <!-- Permissions -->
+    <!-- This is not an offline app - we get pictures from the internet-->
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- We need to keep everything woke when the sync service runs -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <!-- Application-wide config. Due to the demo purposes of this app the following constraints are applied:
          1. No cloud backup

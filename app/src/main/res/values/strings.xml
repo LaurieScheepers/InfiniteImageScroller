@@ -93,4 +93,8 @@
 
     <!-- The company name -->
     <string name="company_name">LaurCode</string>
+
+    <!-- Black Friday hint -->
+    <string name="black_friday_hint">Pssst, <b>Black Friday</b> is around the corner</string>
+    <string name="black_friday_hint_hint">Click to take a peek</string>
 </resources>

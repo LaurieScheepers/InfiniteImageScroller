@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,9 +23,10 @@ import laurcode.com.infiniteimagescroller.databinding.ActivitySplashBinding;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedFailedEvent;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedSuccessEvent;
 import laurcode.com.infiniteimagescroller.main.MainApplication;
-import laurcode.com.infiniteimagescroller.rx.ImageDrawableFadeEmitter;
-import laurcode.com.infiniteimagescroller.rx.listeners.ImageDrawableFadeEmitterListener;
+import laurcode.com.infiniteimagescroller.rx.ImageDrawableFader;
+import laurcode.com.infiniteimagescroller.rx.listeners.ImageDrawableFaderListener;
 import laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel;
+import laurcode.com.infiniteimagescroller.sync.SyncService;
 import laurcode.com.infiniteimagescroller.util.ViewUtil;
 import timber.log.Timber;
 
@@ -34,6 +36,7 @@ import timber.log.Timber;
  * Created by lauriescheepers on 2017/11/05.
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class SplashActivity extends AppCompatActivity {
 
     private SplashViewModel splashViewModel;
@@ -65,8 +68,8 @@ public class SplashActivity extends AppCompatActivity {
         // Bind Butterknife for easy access to the views in this activity
         ButterKnife.bind(this);
 
-        // First image is the ape with a branch
-        splashViewModel.setEvolutionImageResId(R.drawable.ape_branch_final);
+        // No image must be visible initially
+        evolutionImage.setVisibility(View.GONE);
 
         // Start le nice animations
         startAnimations();
@@ -75,15 +78,16 @@ public class SplashActivity extends AppCompatActivity {
     private void startAnimations() {
         List<Integer> drawables = new ArrayList<>();
 
+        SyncService.enqueueWork(this, MainApplication.getCurrentPage());
+
+        // The drawables we want to show
         drawables.add(R.drawable.ape_branch_final);
         drawables.add(R.drawable.ape_stick_final);
         drawables.add(R.drawable.man_tool_final);
         drawables.add(R.drawable.man_digital_final);
 
-        ImageDrawableFadeEmitter.setDrawables(drawables);
-
-        // Start the custom, amazing, image drawable fade emitter
-        ImageDrawableFadeEmitter.start(evolutionImage, R.drawable.ape_branch_final, new ImageDrawableFadeEmitterListener() {
+        // Start the custom, image drawable fader
+        new ImageDrawableFader().setDrawables(drawables).start(evolutionImage, new ImageDrawableFaderListener() {
             @Override
             public void onComplete() {
                 // Now fade in the company name and app name
@@ -91,9 +95,9 @@ public class SplashActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onError() {
+            public void onError(Exception e) {
                 // Ignore the error and go ahead and show the text underneath the image. Just log it at least.
-                Timber.e("There was an error with the image fade emitter, but life must go on. Ignoring.");
+                Timber.e(e,"There was an error with the image drawable fader, but life must go on. Ignoring.");
                 onComplete();
             }
         });

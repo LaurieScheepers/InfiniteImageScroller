@@ -71,6 +71,7 @@ public final class ViewUtil {
 
     public static void fadeViewIn(@NonNull final View v, final int duration, @Nullable final FadeInAnimationCompletedCallback fadeInAnimationCompletedCallback) {
         if (v.getVisibility() != View.VISIBLE) {
+
             ViewPropertyAnimator anim = v.animate();
 
             if (anim != null) {
@@ -112,6 +113,8 @@ public final class ViewUtil {
                 v.setAlpha(1);
                 v.setVisibility(View.VISIBLE);
             }
+        } else {
+            Timber.d("View is already visible, so ignoring fade in.");
         }
     }
 

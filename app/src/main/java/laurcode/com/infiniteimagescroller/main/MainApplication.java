@@ -32,6 +32,11 @@ public class MainApplication extends Application {
      */
     private static HashMap<Class, BaseObservable> viewModels;
 
+    /**
+     * We keep track of the pages app-wide (when app is launched it always starts at 0)
+     */
+    private static int currentPage;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -90,5 +95,9 @@ public class MainApplication extends Application {
 
     public static void registerViewModel(Class clazz, BaseObservable viewModel) {
         viewModels.put(clazz, viewModel);
+    }
+
+    public static int getCurrentPage() {
+        return currentPage;
     }
 }
