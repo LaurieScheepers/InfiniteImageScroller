@@ -73,7 +73,6 @@ public class SplashActivity extends AppCompatActivity {
     @BindView(R.id.black_friday_link_hint)
     TextView blackFridayLinkHint;
 
-
     public static final String BLACK_FRIDAY_URL = "www.superbalist.com/showdown/";
 
     @Override

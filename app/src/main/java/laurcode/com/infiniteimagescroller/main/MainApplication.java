@@ -5,9 +5,7 @@ import android.databinding.BaseObservable;
 import android.support.v7.app.AppCompatDelegate;
 
 import com.crashlytics.android.Crashlytics;
-import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
-import com.uphyca.stetho_realm.RealmInspectorModulesProvider;
 
 import java.util.HashMap;
 
@@ -66,13 +64,6 @@ public class MainApplication extends Application {
             // NOTE: The tree is only planted in debug mode. The Timber.log() statements in the code will be a no-op in production.
             // Take a look at (https://github.com/JakeWharton/timber/issues/210)
             Timber.plant(new Timber.DebugTree());
-
-            // Init Stetho, for debugging
-            Stetho.initialize(
-                    Stetho.newInitializerBuilder(this)
-                            .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                            .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
-                            .build());
 
             // Init Leakcanary, let's find those memory leaks and eliminate them
             //noinspection ConstantConditions
