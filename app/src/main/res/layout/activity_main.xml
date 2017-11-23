@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="laurcode.com.infiniteimagescroller.main.MainActivity">
+        tools:context="laurcode.com.infiniteimagescroller.main.view.MainActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
@@ -42,9 +42,8 @@
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
 
             </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/view_main_content" />
+        </android.support.design.widget.AppBarLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
@@ -54,6 +53,12 @@
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom|end"
             app:srcCompat="@android:drawable/ic_dialog_email" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/app_bar_height"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

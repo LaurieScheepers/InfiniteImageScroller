@@ -5,7 +5,7 @@ import android.annotation.SuppressLint;
 import java.util.HashMap;
 
 /**
- * INSERT DESCRIPTION OF CLASS HERE
+ * Enum describing the different types of licenses for pictures on 500px
  * <p>
  * Created by lauriescheepers on 2017/11/08.
  */

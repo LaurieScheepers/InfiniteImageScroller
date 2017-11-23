@@ -33,7 +33,7 @@ import laurcode.com.infiniteimagescroller.custom.listeners.ImageDrawableFaderLis
 import laurcode.com.infiniteimagescroller.databinding.ActivitySplashBinding;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedFailedEvent;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedSuccessEvent;
-import laurcode.com.infiniteimagescroller.main.MainActivity;
+import laurcode.com.infiniteimagescroller.main.view.MainActivity;
 import laurcode.com.infiniteimagescroller.main.MainApplication;
 import laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel;
 import laurcode.com.infiniteimagescroller.sync.SyncService;

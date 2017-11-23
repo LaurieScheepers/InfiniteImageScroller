@@ -27,7 +27,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/margin_massive"
             android:layout_marginTop="@dimen/margin_massive"
-            app:indicatorColor="@color/yellow_pleasing" />
+            app:indicatorColor="@color/pacman_yellow" />
 
         <TextView
             android:id="@+id/syncing_data_text_view"

@@ -3,7 +3,7 @@ package laurcode.com.infiniteimagescroller.exceptions;
 import laurcode.com.infiniteimagescroller.util.CrashUtil;
 
 /**
- * INSERT DESCRIPTION OF CLASS HERE
+ * A custom exception that happens when the API returns us an error response
  * <p>
  * Created by lauriescheepers on 2017/11/23.
  */
