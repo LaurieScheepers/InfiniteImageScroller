@@ -6,6 +6,9 @@
 
     <data>
 
+        <import type="android.view.View"/>
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
         <variable
             name="viewModel"
             type="laurcode.com.infiniteimagescroller.main.viewmodel.MainViewModel" />

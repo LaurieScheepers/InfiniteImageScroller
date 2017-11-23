@@ -6,7 +6,11 @@
     <color name="light_blue">#81d4Fa</color>
     <color name="fuchsia">#ff0080</color>
     <color name="mint">#98ff98</color>
+
+    <!-- This is the actual color of Pacman. Taken from here: http://www.color-hex.com/color-palette/10122 -->
     <color name="pacman_yellow">#fdff00</color>
+
+    <!-- Other nice colors! -->
     <color name="charcoal">#333333</color>
     <color name="aqua">#029aae</color>
     <color name="magenta">#e52050</color>
