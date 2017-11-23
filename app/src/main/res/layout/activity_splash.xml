@@ -14,8 +14,7 @@
     <RelativeLayout
         android:id="@+id/root_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white">
+        android:layout_height="match_parent">
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/pacman_loading_indicator"
@@ -46,7 +45,6 @@
 
     <ImageView
         android:id="@+id/ape_to_digital_man_image"
-        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:visibility="gone"

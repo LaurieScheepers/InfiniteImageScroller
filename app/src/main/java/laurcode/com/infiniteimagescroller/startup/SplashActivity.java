@@ -33,10 +33,12 @@ import laurcode.com.infiniteimagescroller.custom.listeners.ImageDrawableFaderLis
 import laurcode.com.infiniteimagescroller.databinding.ActivitySplashBinding;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedFailedEvent;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedSuccessEvent;
+import laurcode.com.infiniteimagescroller.main.MainActivity;
 import laurcode.com.infiniteimagescroller.main.MainApplication;
 import laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel;
 import laurcode.com.infiniteimagescroller.sync.SyncService;
 import laurcode.com.infiniteimagescroller.util.CrashUtil;
+import laurcode.com.infiniteimagescroller.util.SharedPreferencesUtil;
 import laurcode.com.infiniteimagescroller.util.ViewUtil;
 import timber.log.Timber;
 
@@ -94,9 +96,14 @@ public class SplashActivity extends AppCompatActivity {
     // A flag indicating that the service has finished with the API call
     private boolean serviceFinishedWork;
 
+    // A flag indicating that the user has seen this splash before
+    private boolean userHasSeenSplashBefore;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        userHasSeenSplashBefore = SharedPreferencesUtil.hasUserSeenSplash(this);
 
         // Get a handle on the binding
         ActivitySplashBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
@@ -148,7 +155,11 @@ public class SplashActivity extends AppCompatActivity {
         companyNameTextView.setText("");
         appNameTextView.setText("");
 
-        evolutionImage.setOnClickListener(v -> SnackbarWrapper.show(rootContainer, R.string.black_friday_hint, Snackbar.LENGTH_SHORT));
+        evolutionImage.setOnClickListener(v -> {
+            if (serviceFinishedWork && mainImageAnimationDone) {
+                SplashActivity.this.goToMainActivity();
+            }
+        });
     }
 
     private void startAnimations() {
@@ -162,13 +173,20 @@ public class SplashActivity extends AppCompatActivity {
         }
 
         // The drawables we want to show
-        drawables.add(R.drawable.ape_branch_final);
-        drawables.add(R.drawable.ape_stick_final);
-        drawables.add(R.drawable.man_tool_final);
+        // NOTE: If we have already been through the whole splash screen, just show the last image
+        if (!userHasSeenSplashBefore) {
+            drawables.add(R.drawable.ape_branch_final);
+            drawables.add(R.drawable.ape_stick_final);
+            drawables.add(R.drawable.man_tool_final);
+        }
+
         drawables.add(R.drawable.man_digital_final);
 
         // Start the custom image drawable fader
-        new ImageDrawableFader().setDrawables(drawables).start(evolutionImage, new ImageDrawableFaderListener() {
+        new ImageDrawableFader()
+                .setDrawables(drawables)
+                .start(evolutionImage, new ImageDrawableFaderListener() {
+
             @Override
             public void onComplete() {
                 ViewUtil.fadeViewIn(companyNameTextView,
@@ -205,6 +223,15 @@ public class SplashActivity extends AppCompatActivity {
                 onComplete();
             }
         });
+    }
+
+    private void goToMainActivity() {
+        SharedPreferencesUtil.setUserHasSeenSplash(this, true);
+
+        startActivity(new Intent(this, MainActivity.class));
+
+        // Finish SplashActivity so that it doesn't appear on the back stack
+        finish();
     }
 
     @SuppressWarnings("ConstantConditions")

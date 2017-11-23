@@ -37,10 +37,10 @@ import timber.log.Timber;
 public class DataBindingAdapters {
 
     // Adjusting the TENSION constant will change the speed of the animation; the higher the tension the faster the speed.
-    private static final double SPRING_TENSION = 350;
+    private static final double SPRING_TENSION = 200;
 
     // Adjusting the DAMPER constant will change the bounce at the end of the animation, the lower the damper the more bounce.
-    private static final double SPRING_DAMPER = 14;     // also called friction
+    private static final double SPRING_DAMPER = 10;     // also called friction
 
     private static boolean springTranslateMovedUp;
     private static boolean springTranslateMovedDown;
