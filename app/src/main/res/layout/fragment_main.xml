@@ -50,7 +50,7 @@
             tools:visibility="visible"
             app:indicatorName="PacmanIndicator"
             android:layout_centerInParent="true"
-            app:indicatorColor="@color/pacman_yellow" />
+            app:indicatorColor="@color/grellow" />
 
     </RelativeLayout>
 

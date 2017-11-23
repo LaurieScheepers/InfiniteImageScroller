@@ -7,8 +7,8 @@
     <color name="fuchsia">#ff0080</color>
     <color name="mint">#98ff98</color>
 
-    <!-- This is the actual color of Pacman. Taken from here: http://www.color-hex.com/color-palette/10122 -->
-    <color name="pacman_yellow">#fdff00</color>
+    <!-- Grellow - green-yellow -->
+    <color name="grellow">#c6bf49</color>
 
     <!-- Other nice colors! -->
     <color name="charcoal">#333333</color>

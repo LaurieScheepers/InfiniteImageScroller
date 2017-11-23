@@ -33,8 +33,8 @@ import laurcode.com.infiniteimagescroller.custom.listeners.ImageDrawableFaderLis
 import laurcode.com.infiniteimagescroller.databinding.ActivitySplashBinding;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedFailedEvent;
 import laurcode.com.infiniteimagescroller.events.PhotosRetrievedSuccessEvent;
-import laurcode.com.infiniteimagescroller.main.view.MainActivity;
 import laurcode.com.infiniteimagescroller.main.MainApplication;
+import laurcode.com.infiniteimagescroller.main.view.MainActivity;
 import laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel;
 import laurcode.com.infiniteimagescroller.sync.SyncService;
 import laurcode.com.infiniteimagescroller.util.CrashUtil;
@@ -228,10 +228,12 @@ public class SplashActivity extends AppCompatActivity {
     private void goToMainActivity() {
         SharedPreferencesUtil.setUserHasSeenSplash(this, true);
 
-        startActivity(new Intent(this, MainActivity.class));
+        rootContainer.postDelayed(() -> {
+            startActivity(new Intent(SplashActivity.this, MainActivity.class));
 
-        // Finish SplashActivity so that it doesn't appear on the back stack
-        finish();
+            // Finish SplashActivity so that it doesn't appear on the back stack
+            finish();
+        }, 750);
     }
 
     @SuppressWarnings("ConstantConditions")
