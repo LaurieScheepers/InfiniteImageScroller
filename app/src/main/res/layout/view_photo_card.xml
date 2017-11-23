@@ -36,7 +36,7 @@
                     android:id="@+id/photo_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="centerInside"
+                    android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dethklok"/>
 
