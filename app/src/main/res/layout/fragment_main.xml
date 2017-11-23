@@ -28,12 +28,16 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/photos_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                app:layoutManager="@{LayoutManagers.linear()}"/>
+            <!--<android.support.v7.widget.RecyclerView-->
+                <!--android:id="@+id/photos_recycler_view"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="vertical"-->
+                <!--app:layoutManager="@{LayoutManagers.linear()}"/>-->
+
+            <include
+                android:id="@+id/black_friday_dummy_image"
+                layout="@layout/view_photo_card" />
 
         </android.support.v4.widget.NestedScrollView>
 
