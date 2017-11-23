@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6d4c41</color>
-    <color name="colorPrimaryDark">#4e342e</color>
-    <color name="colorAccent">#b87333</color>
 
     <!-- Nice colors! Some of these are material colors, others not, who cares, as long as they look nice -->
-    <color name="copper">@color/colorAccent</color>
+    <color name="copper">#b87333</color>
     <color name="light_blue">#81d4Fa</color>
     <color name="fuchsia">#ff0080</color>
     <color name="mint">#98ff98</color>
     <color name="yellow_pleasing">#fff176</color>
+    <color name="charcoal">#333333</color>
+    <color name="aqua">#029aae</color>
+    <color name="magenta">#e52050</color>
+    <color name="orange">#ee7c11</color>
+    <color name="yellow">#fac105</color>
 
     <!-- Text colors -->
     <color name="charcoal_text_title">#CC333333</color>
@@ -34,7 +36,35 @@
     <!-- Material blues -->
     <color name="blue_500">#03a9f4</color>
 
+    <!-- The base colors of the app -->
+    <color name="colorPrimary">@color/blue_500</color>
+    <color name="colorPrimaryDark">@color/aqua</color>
+    <color name="colorAccent">@color/fuchsia</color>
+
+    <!-- Dark -->
+    <color name="dark_blue">#0D47A1</color>
+    <color name="dark_grey">@color/grey_600</color>
+    <color name="dark_red">#B71C1C</color>
+    <color name="dark_orange">#D84315</color>
+    <color name="dark_yellow">#FBC02D</color>
+
+    <!-- Custom -->
+    <color name="maroonish">#d23d5e</color>
+    <color name="title_dark">#191719</color>
+    <color name="gold">#fac003</color>
+
+    <!-- Ripple -->
+    <color name="aqua_button_ripple">@color/dark_blue</color>
+    <color name="grey_button_ripple">#CFD8DC</color>
+    <color name="magenta_button_ripple">#FFCDD2</color>
+    <color name="orange_button_ripple">#FFD180</color>
+    <color name="white_button_ripple">@color/grey_200</color>
+    <color name="yellow_button_ripple">#FFF59D</color>
+
     <!-- Placeholder bg color for image -->
     <color name="placeholder_bg_color">#e1e4eb</color>
+
+    <!-- Shadow -->
+    <color name="shadow_start_gradient">#1F000000</color>
 
 </resources>

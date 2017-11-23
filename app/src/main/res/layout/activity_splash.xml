@@ -13,23 +13,51 @@
 
     <RelativeLayout
         android:id="@+id/root_container"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white">
 
-        <!-- NOTE: Content description warning is ignored here as this is a demo app: for production apps it must be there for accessibility reasons -->
-        <ImageView
-            android:id="@+id/ape_to_digital_man_image"
-            android:background="@android:color/white"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_centerInParent="true"
-            android:visibility="gone"
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/pacman_loading_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AVLoadingIndicatorView"
+            android:visibility="invisible"
             tools:visibility="visible"
-            app:imageRes="@{viewModel.evolutionImageResId}"
-            tools:src="@drawable/man_digital_final"
-            tools:ignore="ContentDescription" />
+            app:indicatorName="PacmanIndicator"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/margin_massive"
+            android:layout_marginTop="@dimen/margin_massive"
+            app:indicatorColor="@color/yellow_pleasing" />
+
+        <TextView
+            android:id="@+id/syncing_data_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:layout_below="@id/pacman_loading_indicator"
+            android:text="@string/syncing_data"
+            android:visibility="invisible"
+            android:layout_marginEnd="@dimen/margin_mediumer"
+            app:charIncrease="1"
+            app:typerSpeed="40"
+            tools:visibility="visible"
+            style="@style/TextStyle.Cabin.Caption.Big" />
+
+    <ImageView
+        android:id="@+id/ape_to_digital_man_image"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:clickable="true"
+        android:focusable="true"
+        app:bounceOnTouch="@{true}"
+        android:layout_centerInParent="true"
+        app:imageRes="@{viewModel.evolutionImageResId}"
+        tools:src="@drawable/man_digital_final"
+        android:contentDescription="@string/content_description_evolution_image" />
 
         <com.hanks.htextview.typer.TyperTextView
             android:id="@+id/company_name"
@@ -40,9 +68,9 @@
             android:text="@string/company_name"
             android:visibility="gone"
             app:charIncrease="1"
-            app:typerSpeed="80"
+            app:typerSpeed="40"
             tools:visibility="visible"
-            style="@style/TextAppearance.Heading.Large"
+            style="@style/TextStyle.Cabin.Heading"
             android:layout_below="@id/ape_to_digital_man_image"/>
 
         <com.hanks.htextview.typer.TyperTextView
@@ -54,18 +82,44 @@
             android:text="@string/app_name"
             android:visibility="gone"
             app:charIncrease="1"
-            app:typerSpeed="80"
+            app:typerSpeed="40"
             tools:visibility="visible"
-            style="@style/TextAppearance.Caption.Large" />
+            style="@style/TextStyle.Cabin.Caption.Big" />
 
         <include
             android:id="@+id/black_friday_section"
             layout="@layout/view_black_friday_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_big"
             app:viewModel="@{viewModel}"
-            android:layout_marginTop="@dimen/margin_massiver"
             android:layout_below="@id/app_name"/>
+
+        <ImageView
+            android:id="@+id/indicating_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ape_to_digital_man_image"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="130dp"
+            android:contentDescription="@string/content_description_image_press_me_arrow"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_diagonal_right_down_arrow"
+            tools:ignore="RtlSymmetry"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/click_me_to_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/indicating_arrow"
+            android:layout_marginStart="@dimen/margin_titanic"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/click_me_to_continue"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            style="@style/TextStyle.Cabin.Caption.Big" />
 
     </RelativeLayout>
 

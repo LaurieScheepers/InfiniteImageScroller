@@ -3,6 +3,7 @@ package laurcode.com.infiniteimagescroller.models;
 import com.google.gson.annotations.Expose;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Model class representing the image object contained in the base FreshestPhotos response from the API
@@ -13,17 +14,20 @@ import io.realm.RealmObject;
 @SuppressWarnings("WeakerAccess")
 public class Image extends RealmObject {
 
-    @Expose
-    public int size;
+    @PrimaryKey
+    private int id;
 
     @Expose
-    public String url;
+    private int size;
 
     @Expose
-    public String httpsUrl;
+    private String url;
 
     @Expose
-    public String format;
+    private String httpsUrl;
+
+    @Expose
+    private String format;
 
     public int getSize() {
         return size;
@@ -55,5 +59,13 @@ public class Image extends RealmObject {
 
     public void setFormat(String format) {
         this.format = format;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

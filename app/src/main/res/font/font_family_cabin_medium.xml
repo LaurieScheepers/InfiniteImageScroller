@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Cabin Medium is used for buttons -->
+
+    <!-- medium -->
+    <font
+        app:font="@font/cabin_medium"
+        app:fontStyle="normal"
+        app:fontWeight="400"
+
+        android:font="@font/cabin_medium"
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        tools:ignore="UnusedAttribute" />
+
+    <!-- medium italic -->
+    <font
+        app:font="@font/cabin_mediumitalic"
+        app:fontStyle="italic"
+        app:fontWeight="400"
+
+        android:font="@font/cabin_mediumitalic"
+        android:fontStyle="italic"
+        android:fontWeight="400"
+        tools:ignore="UnusedAttribute" />
+
+</font-family>

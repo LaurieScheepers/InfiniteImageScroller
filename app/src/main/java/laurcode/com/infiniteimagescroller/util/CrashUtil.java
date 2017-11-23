@@ -30,17 +30,17 @@ public class CrashUtil {
     /**
      * Helper method to log a crash. If in release builds this will log the crash to Crashlytics.
      * @param customMessage a message containing extra details about the crash
-     * @param e the exception causing the crash
+     * @param t the throwable causing the error/crash
      */
     @SuppressWarnings("SameParameterValue")
-    public static void logCrash(String customMessage, @NonNull Exception e) {
+    public static void logCrash(String customMessage, @NonNull Throwable t) {
         String messageLog = "FATAL ERROR";
 
         // Add stacktrace details
         try {
             messageLog = getStackTraceLogMessage();
         } catch (SecurityException se) {
-            handleMissingStacktraceError(e, se);
+            handleMissingStacktraceError(t, se);
         }
 
         // Add custom message
@@ -48,11 +48,11 @@ public class CrashUtil {
             messageLog = StringUtil.concatString(messageLog, "\nCustom message = {", customMessage, "}");
         }
 
-        Timber.e(messageLog, e);
+        Timber.e(messageLog, t);
 
         if (BuildConfig.RELEASE) {
             Crashlytics.log(messageLog);
-            Crashlytics.logException(e);
+            Crashlytics.logException(t);
         }
     }
 
@@ -101,17 +101,17 @@ public class CrashUtil {
 
     /**
      * Handles an error we can't get the stack trace (probably due to a SecurityManager not allowing it to be retrieved).
-     * @param originalException The original exception causing the error (before we tried to get the stack trace).
+     * @param originalThrowable The original throwable causing the error (before we tried to get the stack trace).
      */
-    private static void handleMissingStacktraceError(@Nullable Exception originalException, @NonNull SecurityException securityException) {
+    private static void handleMissingStacktraceError(@Nullable Throwable originalThrowable, @NonNull SecurityException securityException) {
         // Damn we couldn't get the stack trace because of security reasons.
         // For more info see here (https://developer.android.com/reference/java/lang/SecurityException.html)
         // In this case we log the security exception as well
         logCrash(securityException);
 
         // And we try and get the stacktrace using a different way and that is to get it from the original exception.
-        if (originalException != null) {
-            StackTraceElement[] stackTraceElements = originalException.getStackTrace();
+        if (originalThrowable != null) {
+            StackTraceElement[] stackTraceElements = originalThrowable.getStackTrace();
 
             if (stackTraceElements == null || stackTraceElements.length == 0) {
                 // Out of luck... Let's log this as well just for extra information

@@ -73,8 +73,6 @@ public class SyncService extends JobIntentService implements PhotosRetrievedList
         // Start the syncing work here.
         int page = intent.getIntExtra(EXTRA_PAGE, 1);
 
-
-
         Timber.d("SYNC: Received work to do. Retrieving photos for page " + page);
 
         startSync(page);
@@ -114,6 +112,8 @@ public class SyncService extends JobIntentService implements PhotosRetrievedList
 
     @Override
     public void onSuccess() {
+        Timber.d("Successful sync - post the event to the UI");
+
         // We are done
         stop();
 
@@ -122,7 +122,7 @@ public class SyncService extends JobIntentService implements PhotosRetrievedList
     }
 
     @Override
-    public void onError() {
+    public void onError(Throwable error) {
         // We are done
         stop();
 

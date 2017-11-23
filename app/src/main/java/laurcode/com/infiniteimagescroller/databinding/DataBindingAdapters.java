@@ -72,6 +72,7 @@ public class DataBindingAdapters {
         }
 
         Spring spring = SpringSystem.create().createSpring();
+
         spring.addListener(new SimpleSpringListener() {
 
             @Override

@@ -8,6 +8,7 @@
     <dimen name="padding_tiny">2dp</dimen>
     <dimen name="padding_small">4dp</dimen>
     <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_mediumer">10dp</dimen>
     <dimen name="padding_big">12dp</dimen>
     <dimen name="padding_bigger">14dp</dimen>
     <dimen name="padding_huge">16dp</dimen>
@@ -21,6 +22,7 @@
     <dimen name="margin_tiny">2dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_mediumer">10dp</dimen>
     <dimen name="margin_big">12dp</dimen>
     <dimen name="margin_bigger">14dp</dimen>
     <dimen name="margin_huge">16dp</dimen>

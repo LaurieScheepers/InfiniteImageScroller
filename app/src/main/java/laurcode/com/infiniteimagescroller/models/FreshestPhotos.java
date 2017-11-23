@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Model class representing freshest photos response
@@ -16,23 +17,26 @@ import io.realm.RealmObject;
 @SuppressWarnings("WeakerAccess")
 public class FreshestPhotos extends RealmObject {
 
-    @Expose
-    public int currentPage;
+    @PrimaryKey
+    private int id;
 
     @Expose
-    public int totalPages;
+    private int currentPage;
 
     @Expose
-    public int totalItems;
+    private int totalPages;
 
     @Expose
-    public RealmList<Photo> photos;
+    private int totalItems;
 
     @Expose
-    public PhotoFilters filters;
+    private RealmList<Photo> photos;
 
     @Expose
-    public String feature;
+    private PhotoFilters filters;
+
+    @Expose
+    private String feature;
 
     public int getCurrentPage() {
         return currentPage;
@@ -80,5 +84,13 @@ public class FreshestPhotos extends RealmObject {
 
     public void setFeature(String feature) {
         this.feature = feature;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

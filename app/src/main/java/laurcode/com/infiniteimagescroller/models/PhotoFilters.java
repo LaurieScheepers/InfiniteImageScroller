@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Model object representing the "filters" object contained in the base FreshestPhotos response
@@ -14,6 +15,9 @@ import io.realm.RealmObject;
  */
 
 public class PhotoFilters extends RealmObject {
+
+    @PrimaryKey
+    private int id;
 
     @Expose
     private boolean category;
@@ -35,5 +39,13 @@ public class PhotoFilters extends RealmObject {
 
     public void setExclude(RealmList<Integer> exclude) {
         this.exclude = exclude;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

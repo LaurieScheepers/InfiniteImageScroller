@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- extra bold -->
+    <font
+        android:font="@font/opensans_extrabold"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+
+        app:font="@font/opensans_extrabold"
+        app:fontStyle="normal"
+        app:fontWeight="700"
+        tools:ignore="UnusedAttribute" />
+
+    <!-- extra bold italic -->
+    <font
+        android:font="@font/opensans_extrabolditalic"
+        android:fontStyle="italic"
+        android:fontWeight="700"
+
+        app:font="@font/opensans_extrabolditalic"
+        app:fontStyle="italic"
+        app:fontWeight="700"
+        tools:ignore="UnusedAttribute" />
+
+</font-family>

@@ -18,6 +18,309 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- START TOOLBAR -->
+
+    <style name="MainToolbar" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="TextStyle.Toolbar" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/cabin_medium</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/charcoal_text_title</item>
+    </style>
+
+    <!-- END TOOLBAR -->
+
+    <!-- START BUTTON TEXT -->
+
+    <style name="TextStyle.Button.Light" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/cabin_medium</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextStyle.Button.Dark" parent="TextStyle.Button.Light">
+        <item name="android:textColor">@color/charcoal_text_title</item>
+    </style>
+
+    <!-- END BUTTON TEXT -->
+
+    <!-- START CABIN -->
+
+    <style name="TextStyle.Cabin.Display4" parent="TextAppearance.AppCompat.Display4">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Display3" parent="TextAppearance.AppCompat.Display3">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Display2" parent="TextAppearance.AppCompat.Display2">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Display1" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Heading" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Heading.Medium" parent="TextStyle.Cabin.Heading">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Heading.Small" parent="TextStyle.Cabin.Heading.Medium">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Heading.Small.Grey" parent="TextStyle.Cabin.Heading.Small">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/grey_text_heading</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/cabin_medium</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Title.Grey" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/cabin_medium</item>
+        <item name="android:textColor">@color/grey_500</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Title.Dark" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/cabin_medium</item>
+        <item name="android:textColor">@color/title_dark</item>
+    </style>
+
+    <style name="TextStyle.Cabin.SubTitle" parent="TextStyle.Cabin.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Subheading.Grey" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:fontFamily">@font/font_family_cabin_regular</item>
+        <item name="android:textColor">@color/grey_500</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Subheading.Charcoal" parent="TextStyle.Cabin.Subheading.Grey">
+        <item name="android:textColor">@color/charcoal_text_title</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Body.Regular" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:fontFamily">@font/cabin_medium</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Body.Light" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textColor">@color/grey_text_body</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Caption.Big" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textColor">@color/grey_text_body</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Caption.Medium" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textColor">@color/grey_text_caption</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Caption" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textColor">@color/grey_text_caption</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Subcaption" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/cabin_regular</item>
+        <item name="android:textColor">@color/grey_text_subcaption</item>
+        <item name="android:textSize">8sp</item>
+    </style>
+
+    <style name="TextStyle.Cabin.Error" parent="TextStyle.Cabin.Caption.Big">
+        <item name="android:textColor">@color/magenta</item>
+    </style>
+
+    <!-- END CABIN -->
+
+    <!-- START OPEN SANS -->
+
+    <style name="TextStyle.Opensans.Display4" parent="TextStyle.Cabin.Display4">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Display3" parent="TextStyle.Cabin.Display3">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Display2" parent="TextStyle.Cabin.Display2">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Display1" parent="TextStyle.Cabin.Display1">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Heading" parent="TextStyle.Cabin.Heading">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Title" parent="TextStyle.Cabin.Title">
+        <item name="android:fontFamily">@font/opensans_bold</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Subheading" parent="TextStyle.Cabin.Subheading.Grey">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Body.Regular" parent="TextStyle.Cabin.Body.Regular">
+        <item name="android:fontFamily">@font/opensans_regular</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Body.Light" parent="TextStyle.Cabin.Body.Light">
+        <item name="android:fontFamily">@font/opensans_light</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Caption" parent="TextStyle.Cabin.Caption">
+        <item name="android:fontFamily">@font/opensans_light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextStyle.Opensans.Subcaption" parent="TextStyle.Cabin.Subcaption">
+        <item name="android:fontFamily">@font/opensans_light</item>
+    </style>
+
+    <!-- END OPEN SANS -->
+
+    <!-- BEGIN INDIE FLOWER -->
+
+    <style name="TextStyle.IndieFlower.Body1" parent="TextStyle.Opensans.Body.Light">
+        <item name="android:fontFamily">@font/font_family_indie_flower_regular</item>
+    </style>
+
+    <!-- END INDIE FLOWER -->
+
+    <!-- START ERROR TEXT -->
+    <style name="TextStyle.Error" parent="TextStyle.Opensans.Body.Light">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- END ERROR TEXT -->
+
+    <!-- START BUTTON STYLES -->
+
+    <style name="WhiteButtonStyle" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/white_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="WhiteButtonStyle.FullWidth" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@drawable/white_button</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="BorderlessButtonStyle" parent="TextAppearance.AppCompat.Widget.Button.Borderless.Colored">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/magenta</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AquaButtonStyle" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/aqua_button</item>
+        <item name="android:textColor">@color/aqua</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="AquaButtonStyle.FullWidth" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@color/aqua</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="MagentaButtonStyle" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/magenta_button</item>
+        <item name="android:textColor">@color/magenta</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="MagentaButtonStyle.FullWidth" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@color/magenta</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="OrangeButtonStyle" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/orange_button</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="OrangeButtonStyle.FullWidth" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@color/orange</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="YellowButtonStyle" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/yellow_button</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="YellowButtonStyle.FullWidth" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@color/yellow</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="GreyButtonStyle" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/grey_button</item>
+        <item name="android:textColor">@color/grey_text_body</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="GreyButtonStyle.FullWidth" parent="TextStyle.Button.Light">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@color/grey_400</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- END BUTTON STYLES -->
+
     <style name="TextAppearance.Heading.Large" parent="TextAppearance.AppCompat.Headline">
         <item name="android:textSize">28sp</item>
         <item name="android:textColor">@color/charcoal_text_title</item>
@@ -68,11 +371,11 @@
         <item name="android:textColor">@color/blue_500</item>
     </style>
 
-    <style name="TextAppearance.Link.Medium" parent="TextAppearance.Body.Medium">
+    <style name="TextAppearance.Link.Medium" parent="TextStyle.Cabin.Body.Regular">
         <item name="android:textColor">@color/blue_500</item>
     </style>
 
-    <style name="TextAppearance.Link.Small" parent="TextAppearance.Body.Small">
+    <style name="TextAppearance.Link.Small" parent="TextStyle.Cabin.Body.Light">
         <item name="android:textColor">@color/blue_500</item>
     </style>
 

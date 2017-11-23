@@ -3,6 +3,7 @@ package laurcode.com.infiniteimagescroller.models;
 import com.google.gson.annotations.Expose;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Model object class representing the "user" object contained in the base FreshestPhotos response
@@ -14,6 +15,7 @@ import io.realm.RealmObject;
 
 public class User extends RealmObject {
 
+    @PrimaryKey
     @Expose
     private int id;
 

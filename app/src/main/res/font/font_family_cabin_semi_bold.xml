@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Cabin is used for headings and sub-headings -->
+
+    <!-- semi bold -->
+    <font
+        app:font="@font/cabin_semibold"
+        app:fontStyle="normal"
+        app:fontWeight="700"
+
+        android:font="@font/cabin_semibold"
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        tools:ignore="UnusedAttribute" />
+
+    <!-- Semi bold italic -->
+    <font
+        app:font="@font/cabin_semibolditalic"
+        app:fontStyle="italic"
+        app:fontWeight="700"
+
+        android:font="@font/cabin_semibolditalic"
+        android:fontStyle="italic"
+        android:fontWeight="700"
+        tools:ignore="UnusedAttribute" />
+
+</font-family>

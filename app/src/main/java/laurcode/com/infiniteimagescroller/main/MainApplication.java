@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import laurcode.com.infiniteimagescroller.BuildConfig;
+import laurcode.com.infiniteimagescroller.db.realm.RealmMigrationHandler;
 import laurcode.com.infiniteimagescroller.models.Category;
 import laurcode.com.infiniteimagescroller.models.LicenseType;
 import timber.log.Timber;
@@ -25,6 +25,7 @@ import timber.log.Timber;
  * Created by lauriescheepers on 2017/11/06.
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class MainApplication extends Application {
 
     /**
@@ -35,7 +36,7 @@ public class MainApplication extends Application {
     /**
      * We keep track of the pages app-wide (when app is launched it always starts at 0)
      */
-    private static int currentPage;
+    private static int currentPage = 1;
 
     @Override
     public void onCreate() {
@@ -46,12 +47,7 @@ public class MainApplication extends Application {
 
         // Init Realm
         Realm.init(this);
-
-        // Create and set the default configuration
-        // NOTE: For this demo app I delete the DB if migration is needed. On app upgrade, the db is populated from scratch.
-        Realm.setDefaultConfiguration(new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .build());
+        RealmMigrationHandler.init();
 
         // Lib initialisation only for release builds
         if (BuildConfig.RELEASE) {
@@ -99,5 +95,9 @@ public class MainApplication extends Application {
 
     public static int getCurrentPage() {
         return currentPage;
+    }
+
+    public static void incrementCurrentPage() {
+        currentPage++;
     }
 }

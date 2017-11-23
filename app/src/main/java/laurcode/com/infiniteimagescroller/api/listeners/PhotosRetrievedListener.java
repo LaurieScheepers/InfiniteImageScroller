@@ -10,5 +10,5 @@ public interface PhotosRetrievedListener {
 
     void onSuccess();
 
-    void onError();
+    void onError(Throwable error);
 }

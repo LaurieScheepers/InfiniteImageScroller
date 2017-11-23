@@ -26,7 +26,7 @@
             android:id="@+id/black_friday_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/TextAppearance.Body.Large"
+            style="@style/TextStyle.Cabin.Body.Regular"
             android:text="@string/black_friday_hint"
             android:visibility="invisible"
             tools:visibility="visible"
@@ -48,7 +48,7 @@
                 android:id="@+id/black_friday_hint_hint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.Body.Medium"
+                style="@style/TextStyle.Cabin.Caption.Medium"
                 android:paddingEnd="@dimen/padding_big"
                 android:visibility="invisible"
                 tools:visibility="visible"
@@ -61,7 +61,7 @@
                 android:visibility="invisible"
                 android:paddingEnd="@dimen/padding_huge"
                 tools:visibility="visible"
-                app:srcCompat="@drawable/ic_right_up"
+                app:srcCompat="@drawable/ic_diagonal_right_up_arrow"
                 android:contentDescription="@string/content_description_image_black_friday_deals" />
 
         </LinearLayout>

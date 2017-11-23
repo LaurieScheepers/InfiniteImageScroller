@@ -172,4 +172,7 @@ dependencies {
     // Easy Flip View, for views that can have two sides (better than Android's way of flipping cards)
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:1.0.2'
 
+    // Nice loading animations
+    implementation 'com.wang.avi:library:2.1.3'
+
 }

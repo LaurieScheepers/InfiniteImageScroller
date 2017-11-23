@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Model class representing a Photo object
@@ -19,124 +20,125 @@ import io.realm.RealmObject;
 public class Photo extends RealmObject {
 
     @Expose
-    public int id;
+    @PrimaryKey
+    private int id;
 
     @Expose
-    public int userId;
+    private int userId;
 
     @Expose
-    public String name;
+    private String name;
 
     @Expose
-    public String description;
+    private String description;
 
     @Expose
-    public String camera;
+    private String camera;
 
     @Expose
-    public String lens;
+    private String lens;
 
     @Expose
-    public String focalLength;
+    private String focalLength;
 
     @Expose
-    public String iso;
+    private String iso;
 
     @Expose
-    public String shutterSpeed;
+    private String shutterSpeed;
 
     @Expose
-    public String aperture;
+    private String aperture;
 
     @Expose
-    public int timesViewed;
+    private int timesViewed;
 
     @Expose
-    public double rating;
+    private double rating;
 
     @Expose
-    public int status;
+    private int status;
 
     @Expose
-    public String createdAt;
+    private String createdAt;
 
     @Expose
-    public int category;
+    private int category;
 
     @Expose
-    public String location;
+    private String location;
 
     @Expose
-    public Double latitude;
+    private Double latitude;
 
     @Expose
-    public Double longitude;
+    private Double longitude;
 
     @Expose
-    public String takenAt;
+    private String takenAt;
 
     @Expose
-    public int hiResUploaded;
+    private int hiResUploaded;
 
     @Expose
-    public boolean forSale;
+    private boolean forSale;
 
     @Expose
-    public int width;
+    private int width;
 
     @Expose
-    public int height;
+    private int height;
 
     @Expose
-    public int votesCount;
+    private int votesCount;
 
     @Expose
-    public int favoritesCount;
+    private int favoritesCount;
 
     @Expose
-    public int commentsCount;
+    private int commentsCount;
 
     @Expose
-    public boolean nsfw;
+    private boolean nsfw;
 
     @Expose
-    public int salesCount;
+    private int salesCount;
 
     @Expose
-    public double highestRating;
+    private double highestRating;
 
     @Expose
-    public String highestRatingDate;
+    private String highestRatingDate;
 
     @Expose
-    public int licenseType;
+    private int licenseType;
 
     @Expose
-    public int converted; // Apparently deprecated
+    private int converted; // Apparently deprecated
 
     @Expose
-    public int collectionsCount;
+    private int collectionsCount;
 
     @Expose
-    public boolean privacy;
+    private boolean privacy;
 
     @Expose
-    public String imageUrl; // Apparently deprecated
+    private String imageUrl; // Apparently deprecated
 
     @Expose
-    public RealmList<Image> images;
+    private RealmList<Image> images;
 
     @Expose
-    public User user;
+    private User user;
 
     @Expose
-    public boolean licensingRequested;
+    private boolean licensingRequested;
 
     @Expose
-    public boolean licensingSuggested;
+    private boolean licensingSuggested;
 
     @Expose
-    public boolean isFreePhoto;
+    private boolean isFreePhoto;
 
     public int getId() {
         return id;
