@@ -3,7 +3,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="laurcode.com.infiniteimagescroller">
+    package="laurcode.com.retire">
 
     <!-- Permissions -->
     <!-- This is not an offline app - we get pictures from the internet-->
@@ -20,7 +20,7 @@
      -->
     <application
         android:allowBackup="false"
-        android:name=".main.MainApplication"
+        android:name="laurcode.com.retire.main.MainApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -31,14 +31,14 @@
 
         <!-- MainActivity contains the stream of freshest photos -->
         <activity
-            android:name=".main.view.MainActivity"
+            android:name="laurcode.com.retire.main.view.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
         </activity>
 
         <!-- Splash activity is shown when the app is launched -->
         <activity
-            android:name=".startup.SplashActivity"
+            android:name="laurcode.com.retire.startup.SplashActivity"
             android:theme="@style/SplashActivityTheme">
 
             <intent-filter>
@@ -54,7 +54,7 @@
             android:value="b5603d69afa768e1a9d3602d95ff0106b83ed7cd" />/
 
         <service
-            android:name=".sync.SyncService"
+            android:name="laurcode.com.retire.sync.SyncService"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 

@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="laurcode.com.infiniteimagescroller.startup.viewmodel.SplashViewModel" />
+            type="laurcode.com.retire.startup.viewmodel.SplashViewModel" />
 
     </data>
 

@@ -11,11 +11,11 @@
 
         <variable
             name="viewModel"
-            type="laurcode.com.infiniteimagescroller.main.viewmodel.MainViewModel" />
+            type="laurcode.com.retire.main.viewmodel.MainViewModel" />
 
         <variable
             name="presenter"
-            type="laurcode.com.infiniteimagescroller.main.presenter.MainPresenter" />
+            type="laurcode.com.retire.main.presenter.MainPresenter" />
 
     </data>
 

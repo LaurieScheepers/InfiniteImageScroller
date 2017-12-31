@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="laurcode.com.infiniteimagescroller.main.viewmodel.MainViewModel" />
+            type="laurcode.com.retire.main.viewmodel.MainViewModel" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="laurcode.com.infiniteimagescroller.main.view.MainActivity">
+        tools:context="laurcode.com.retire.main.view.MainActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"

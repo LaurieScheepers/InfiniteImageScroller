@@ -16,7 +16,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha04'
+        classpath 'com.android.tools.build:gradle:3.1.0-alpha06'
 
         // Realm, the best mobile device database (at least IMHO)
         classpath "io.realm:realm-gradle-plugin:4.1.1"
@@ -24,7 +24,7 @@ buildscript {
         // For Fabric, use the latest version and not make it an open-ended version like 'io.fabric.tools:gradle:1.+'
         // The open-ended version is inserted by the Fabric Android Studio Plugin which automatically generates code
         // in the wrong places, so from lessons learnt earlier I don't use that plugin and rather add the code manually.
-        classpath 'io.fabric.tools:gradle:1.24.4'
+        classpath 'io.fabric.tools:gradle:1.25.1'
     }
 }
 
