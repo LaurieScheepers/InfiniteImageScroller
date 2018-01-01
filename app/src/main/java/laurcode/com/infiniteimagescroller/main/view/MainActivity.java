@@ -25,9 +25,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void init(Bundle savedInstanceState) {
         // Add the main fragment
-        MainFragment mainFragment = new MainFragment();
-
-        addFragment(mainFragment);
+//        MainFragment mainFragment = new MainFragment();
+//
+//        addFragment(mainFragment);
     }
 
     @Override
