@@ -15,8 +15,6 @@ import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import laurcode.com.retire.BuildConfig;
 import laurcode.com.retire.db.realm.RealmMigrationHandler;
-import laurcode.com.retire.models.Category;
-import laurcode.com.retire.models.LicenseType;
 import timber.log.Timber;
 
 /**
@@ -32,11 +30,6 @@ public class MainApplication extends Application {
      * An in-memory cache of view model objects. This will persist app-wide
      */
     private static HashMap<Class, BaseObservable> viewModels;
-
-    /**
-     * We keep track of the pages app-wide (when app is launched it always starts at 0)
-     */
-    private static int currentPage = 1;
 
     @Override
     public void onCreate() {
@@ -81,23 +74,11 @@ public class MainApplication extends Application {
             LeakCanary.install(this);
         }
 
-        // Enum initialisation
-        LicenseType.addLicenseTypesToMap();
-        Category.addCategoriesToMap();
-
         // ViewModels initialisation
         viewModels = new HashMap<>();
     }
 
     public static void registerViewModel(Class clazz, BaseObservable viewModel) {
         viewModels.put(clazz, viewModel);
-    }
-
-    public static int getCurrentPage() {
-        return currentPage;
-    }
-
-    public static void incrementCurrentPage() {
-        currentPage++;
     }
 }

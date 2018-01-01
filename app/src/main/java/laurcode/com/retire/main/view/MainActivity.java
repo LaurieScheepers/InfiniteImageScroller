@@ -1,21 +1,31 @@
 package laurcode.com.retire.main.view;
 
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import laurcode.com.retire.R;
 import laurcode.com.retire.base.BaseActivity;
 import laurcode.com.retire.base.BaseFragment;
-import laurcode.com.retire.base.BasePresenter;
-import laurcode.com.retire.base.BaseViewModel;
+import laurcode.com.retire.databinding.ActivityMainBinding;
+import laurcode.com.retire.main.presenter.MainPresenter;
+import laurcode.com.retire.main.viewmodel.MainViewModel;
 
 /**
- * The Main Activity of this app. This is the activity that contains the infinite scrolling of images retrieved from 500px API
+ * Insert description of class here
  * <br><br>
- * Created by lauriescheepers on 2017/11/06.
+ * Created by lauriescheepers on 2018/01/01.
  */
-public class MainActivity extends BaseActivity {
+
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel, MainPresenter> implements IMainView{
+    @Override
+    public void setBundle(Bundle bundle) {
+        // No bundle on the activity
+    }
+
+    @Override
+    public void onChildFragmentAttached(BaseFragment childFragment) {
+        // No child fragments - this activity will only have one fragment
+    }
 
     @Override
     protected int getLayoutResId() {
@@ -24,65 +34,49 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        // Add the main fragment
-        MainFragment mainFragment = new MainFragment();
-
-        addFragment(mainFragment);
+        // TODO check what to initialize
     }
 
     @Override
     protected boolean isMvpvm() {
-        return false;
+        return true;
     }
 
     @Nullable
     @Override
-    protected Class getPresenterClass() {
-        // MainActivity doesn't have a presenter. It only handles the toolbar and the fragment.
-        // The main fragment however, does have one
-        return null;
+    protected Class<MainPresenter> getPresenterClass() {
+        return MainPresenter.class;
     }
 
     @Nullable
     @Override
-    protected Class getViewModelClass() {
-        // MainActivity doesn't have a view model. It only handles the toolbar and the fragment.
-        // The main fragment however, does have one.
-        return null;
+    protected Class<MainViewModel> getViewModelClass() {
+        return MainViewModel.class;
     }
 
     @Override
-    protected void bindToActivity(ViewDataBinding binding, BaseViewModel viewModel, BasePresenter presenter) {
-        // Main activity isn't MVPVM, so ignore
-    }
-
-    @Override
-    public void setBundle(Bundle bundle) {
-        // No bundle to set - this is a dumb activity
+    protected void bindToActivity(ActivityMainBinding binding, MainViewModel viewModel, MainPresenter presenter) {
+        binding.setPresenter(presenter);
+        binding.setViewModel(viewModel);
     }
 
     @Override
     public void onDataLoaded() {
-        // Ignore - no data to be loaded here
+        // TODO what to do here, what DB data do we want
     }
 
     @Override
     public void onFragmentAttached(BaseFragment fragment) {
-        // Nothing needed here
+        // TODO what to do once a fragment is attached
     }
 
     @Override
     public void onFragmentDetached(BaseFragment fragment) {
-        // Nothing needed here
+        // TODO what to do once a fragment is attached
     }
 
     @Override
     public void onFragmentResumed(BaseFragment fragment) {
-        // Nothing needed here
-    }
-
-    @Override
-    public void onChildFragmentAttached(BaseFragment childFragment) {
-        // TODO do we want to do something here?
+        // TODO what to do once a fragment is resumed
     }
 }

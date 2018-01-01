@@ -23,7 +23,6 @@ import com.facebook.rebound.SpringSystem;
 import java.util.Arrays;
 
 import laurcode.com.retire.R;
-import laurcode.com.retire.main.GlideApp;
 import laurcode.com.retire.util.ViewUtil;
 import timber.log.Timber;
 
@@ -49,13 +48,13 @@ public class DataBindingAdapters {
     @BindingAdapter("imageUrl")
     public static void loadImageUrl(ImageView view, String url) {
         // Load into image view with Glide
-        GlideApp
-                .with(view)
-                .load(url)
-                .placeholder(new ColorDrawable(ContextCompat.getColor(view.getContext(), R.color.placeholder_bg_color)))
-                .error(R.drawable.ic_error_404)
-                .transition(DrawableTransitionOptions.withCrossFade())
-                .into(view);
+//        GlideApp
+//                .with(view)
+//                .load(url)
+//                .placeholder(new ColorDrawable(ContextCompat.getColor(view.getContext(), R.color.placeholder_bg_color)))
+//                .error(R.drawable.ic_error_404)
+//                .transition(DrawableTransitionOptions.withCrossFade())
+//                .into(view);
     }
 
     @BindingAdapter("imageRes")

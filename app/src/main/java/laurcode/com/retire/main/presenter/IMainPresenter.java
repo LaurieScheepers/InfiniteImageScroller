@@ -5,13 +5,10 @@ import laurcode.com.retire.main.view.IMainView;
 import laurcode.com.retire.main.viewmodel.MainViewModel;
 
 /**
- * Method definitions for the main presenter
- * <p>
- * Created by lauriescheepers on 2017/11/23.
+ * Insert description of class here
+ * <br><br>
+ * Created by lauriescheepers on 2018/01/01.
  */
 
 public interface IMainPresenter extends Presenter<IMainView, MainViewModel> {
-    void showPacmanProgress();
-
-    void hidePacmanProgress();
 }

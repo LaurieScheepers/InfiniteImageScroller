@@ -1,5 +1,6 @@
 package laurcode.com.retire.base;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
@@ -34,7 +35,7 @@ import timber.log.Timber;
 
 @SuppressWarnings("unused")
 public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseViewModel,
-        P extends BasePresenter<BaseActivity, VM>> extends AppCompatActivity implements BaseView, BaseFragment.Callback {
+        P extends BasePresenter> extends AppCompatActivity implements BaseView, BaseFragment.Callback {
 
     protected DB binding;
 
@@ -82,7 +83,7 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
 
         binding = DataBindingUtil.setContentView(this, getLayoutResId());
 
-        presenter = (P) getLastCustomNonConfigurationInstance();
+        presenter = (P) getLastNonConfigurationInstance();
 
         if (presenter == null) {
             try {
@@ -201,9 +202,7 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
             String tag = fragment.getClass().getSimpleName();
             fragment.setFragmentTag(tag);
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.fragment_container, fragment, fragment.getFragmentTag());
-            transaction.commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, fragment, fragment.getFragmentTag()).commit();
 
             currentFragmentTag = fragment.getFragmentTag();
         } else {

@@ -33,7 +33,8 @@ public class RestClient {
     private static Gson gson;
     private static OkHttpClient client;
     private static Retrofit retrofit;
-    private static MobileApi mobileApi;
+
+    // TODO add MobileApi if we need it as a member variable
 
     public static RestClient getClient(Context context) {
         if (restClient == null) {
@@ -82,14 +83,6 @@ public class RestClient {
                 .addConverterFactory(GsonConverterFactory.create(gson))     // Add GSON converter
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())  // Add RxJava call adapter
                 .build();
-    }
-
-    public MobileApi getMobileApi() {
-        if (mobileApi == null) {
-            return retrofit.create(MobileApi.class);
-        }
-
-        return mobileApi;
     }
 
     public static Retrofit getRetrofit(Context context) {
