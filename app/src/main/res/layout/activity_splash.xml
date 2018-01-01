@@ -22,18 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TextStyle.IndieFlower.Display2"
+            android:visibility="gone"
+            tools:visibility="visible"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="@string/app_name"/>
 
         <com.hanks.htextview.typer.TyperTextView
-            android:id="@+id/company_name"
+            android:id="@+id/retire_caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@string/splash_caption"
-            android:visibility="gone"
-            tools:visibility="visible"
+            tools:text="@string/splash_caption"
             android:textColor="@color/black"
             app:charIncrease="1"
             app:typerSpeed="40"
@@ -52,24 +52,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             app:bounceOnTouch="@{true}"
+            android:visibility="gone"
+            tools:visibility="visible"
             android:layout_marginLeft="@dimen/margin_huger"
             android:layout_marginRight="@dimen/margin_huger"
             android:layout_marginBottom="@dimen/margin_massive"
             android:text="@string/splash_button_text"
             style="@style/BlackButtonStyle"/>
-
-        <!--<com.hanks.htextview.typer.TyperTextView-->
-            <!--android:id="@+id/app_name"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:gravity="center_horizontal"-->
-            <!--android:layout_below="@id/company_name"-->
-            <!--android:text="@string/app_name"-->
-            <!--android:visibility="gone"-->
-            <!--app:charIncrease="1"-->
-            <!--app:typerSpeed="40"-->
-            <!--tools:visibility="visible"-->
-            <!--style="@style/TextStyle.Cabin.Caption.Big" />-->
 
     </RelativeLayout>
 

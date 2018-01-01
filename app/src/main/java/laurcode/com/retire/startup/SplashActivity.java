@@ -4,7 +4,13 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.hanks.htextview.base.AnimationListener;
+import com.hanks.htextview.base.HTextView;
+import com.hanks.htextview.typer.TyperTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -13,6 +19,8 @@ import laurcode.com.retire.databinding.ActivitySplashBinding;
 import laurcode.com.retire.main.MainApplication;
 import laurcode.com.retire.startup.viewmodel.SplashViewModel;
 import laurcode.com.retire.util.SharedPreferencesUtil;
+import laurcode.com.retire.util.ViewUtil;
+import laurcode.com.retire.util.callbacks.FadeInAnimationCompletedCallback;
 
 /**
  * The Splash Activity is shown each time the app starts up. It handles the starting of the sync service, loading the initial freshest photos.
@@ -27,6 +35,12 @@ public class SplashActivity extends AppCompatActivity {
 
     @BindView(R.id.root_container)
     RelativeLayout rootContainer;
+    @BindView(R.id.retire_heading)
+    TextView retireHeading;
+    @BindView(R.id.retire_caption)
+    TyperTextView retireCaption;
+    @BindView(R.id.continue_button)
+    Button continueButton;
 
     // A flag indicating that the user has seen this splash before
     private boolean userHasSeenSplashBefore;
@@ -56,6 +70,24 @@ public class SplashActivity extends AppCompatActivity {
 
         // Bind Butterknife for easy access to the views in this activity
         ButterKnife.bind(this);
+
+        ViewUtil.fadeViewIn(retireHeading, new FadeInAnimationCompletedCallback() {
+            @Override
+            public void onCompleted() {
+
+                // Caption starts off empty
+                retireCaption.setText("");
+
+                retireCaption.setAnimationListener(new AnimationListener() {
+                    @Override
+                    public void onAnimationEnd(HTextView hTextView) {
+                        ViewUtil.fadeViewIn(continueButton);
+                    }
+                });
+
+                retireCaption.animateText(getText(R.string.splash_caption));
+            }
+        });
     }
 
     private void goToMainActivity() {
