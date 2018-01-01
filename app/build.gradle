@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         // Normal things
-        applicationId "laurcode.com.infiniteimagescroller"
+        applicationId "laurcode.com.retire"
         minSdkVersion 19        // Min SDK is KitKat (thus this app is supported on ~90% of devices)
         targetSdkVersion 26     // Target SDK should always be the latest - currently Android 8.0.0 (Oreo)
         versionCode 1
