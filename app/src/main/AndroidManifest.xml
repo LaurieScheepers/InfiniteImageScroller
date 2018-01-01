@@ -8,10 +8,9 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Application-wide config. Due to the demo purposes of this app the following constraints are applied:
+    <!-- Application-wide config.
          1. No cloud backup
          2. No RTL - only English is used
-         3. No Google App Indexing - it's not going to be released
      -->
     <application
         android:allowBackup="false"
@@ -24,7 +23,7 @@
         tools:replace="android:allowBackup, android:supportsRtl"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <!-- MainActivity contains the stream of freshest photos -->
+        <activity android:name=".main.view.MainActivity"/>
 
         <!-- Splash activity is shown when the app is launched -->
         <activity

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Retire</string>
+
+    <!-- Splash -->
+    <string name="splash_caption">In Comfort</string>
+    <string name="splash_button_text">SHOW ME HOW</string>
 </resources>

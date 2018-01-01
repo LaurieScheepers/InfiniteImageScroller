@@ -4,6 +4,7 @@ buildscript {
     }
 
     dependencies {
+        //noinspection GradleDynamicVersion // Fabric recommends 1+ versions, so ok let's do it that way
         classpath 'io.fabric.tools:gradle:1.+'
     }
 }
@@ -13,7 +14,7 @@ apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '27.0.1'
+    buildToolsVersion '27.0.2'
 
     defaultConfig {
         // Normal things
@@ -43,7 +44,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    // Build types for the app. As this is just a demo app, we only have two - debug and release, and I'm not going to add application id suffixes
+    // Build types for the app.
     buildTypes {
 
         release {
@@ -92,7 +93,7 @@ repositories {
 
 dependencies {
 
-    // Include any jars in the libs folder if there are any (of which there are none for this demo app)
+    // Include any jars in the libs folder if there are any
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Normal support library stuff auto-generated when starting a new project PLUS a few others, like design and card view
@@ -115,7 +116,7 @@ dependencies {
     }
 
     // Timber, for logging
-    implementation 'com.jakewharton.timber:timber:4.5.1'
+    implementation 'com.jakewharton.timber:timber:4.6.0'
 
     // Butterknife, for view binding
     implementation 'com.jakewharton:butterknife:8.8.1'

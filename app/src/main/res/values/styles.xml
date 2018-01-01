@@ -212,6 +212,14 @@
 
     <!-- BEGIN INDIE FLOWER -->
 
+    <style name="TextStyle.IndieFlower.Display3" parent="TextStyle.Opensans.Display3">
+        <item name="android:fontFamily">@font/font_family_indie_flower_regular</item>
+    </style>
+
+    <style name="TextStyle.IndieFlower.Display2" parent="TextStyle.Opensans.Display2">
+        <item name="android:fontFamily">@font/font_family_indie_flower_regular</item>
+    </style>
+
     <style name="TextStyle.IndieFlower.Body1" parent="TextStyle.Opensans.Body.Light">
         <item name="android:fontFamily">@font/font_family_indie_flower_regular</item>
     </style>
@@ -315,6 +323,20 @@
     <style name="GreyButtonStyle.FullWidth" parent="TextStyle.Button.Light">
         <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
         <item name="android:background">@color/grey_400</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="BlackButtonStyle" parent="TextStyle.Button.Dark">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/black_button</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="BlackButtonStyle.FullWidth" parent="TextStyle.Button.Dark">
+        <item name="android:foreground">@drawable/transparent_full_width_ripple</item>
+        <item name="android:background">@color/black</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textAllCaps">true</item>
     </style>
