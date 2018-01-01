@@ -23,6 +23,8 @@
     <color name="magenta">#e52050</color>
     <color name="orange">#ee7c11</color>
     <color name="yellow">#fac105</color>
+    <color name="dark_slate_blue">#483d8b</color>
+    <color name="light_aqua_blue">#72e1ec</color>
 
     <!-- Text colors -->
     <color name="charcoal_text_title">#CC333333</color>

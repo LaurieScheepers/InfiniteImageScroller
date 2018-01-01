@@ -341,6 +341,13 @@
         <item name="android:textAllCaps">true</item>
     </style>
 
+    <style name="BlueButtonStyle" parent="TextStyle.Button.Dark">
+        <item name="android:foreground">@drawable/transparent_ripple</item>
+        <item name="android:background">@drawable/blue_button</item>
+        <item name="android:textColor">@color/dark_slate_blue</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
     <!-- END BUTTON STYLES -->
 
     <style name="TextAppearance.Heading.Large" parent="TextAppearance.AppCompat.Headline">

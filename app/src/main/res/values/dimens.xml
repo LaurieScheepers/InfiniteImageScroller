@@ -15,7 +15,10 @@
     <dimen name="padding_huger">24dp</dimen>
     <dimen name="padding_massive">32dp</dimen>
     <dimen name="padding_massiver">48dp</dimen>
-    <dimen name="padding_titanic">64dp</dimen>
+    <dimen name="padding_enormous">56dp</dimen>
+    <dimen name="padding_gicantic">64dp</dimen>
+    <dimen name="padding_ginormous">72dp</dimen>
+    <dimen name="padding_ginormouser">76dp</dimen>
 
     <!-- Margins -->
     <dimen name="margin_dot">1dp</dimen>
@@ -29,7 +32,10 @@
     <dimen name="margin_huger">24dp</dimen>
     <dimen name="margin_massive">32dp</dimen>
     <dimen name="margin_massiver">48dp</dimen>
-    <dimen name="margin_titanic">64dp</dimen>
+    <dimen name="margin_enormous">56dp</dimen>
+    <dimen name="margin_gicantic">64dp</dimen>
+    <dimen name="margin_ginormous">72dp</dimen>
+    <dimen name="margin_ginormouser">76dp</dimen>
 
     <!-- Cards -->
     <dimen name="card_radius">2dp</dimen>
