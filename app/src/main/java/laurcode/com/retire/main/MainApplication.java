@@ -15,8 +15,6 @@ import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
 import laurcode.com.retire.BuildConfig;
 import laurcode.com.retire.db.realm.RealmMigrationHandler;
-import laurcode.com.retire.models.Category;
-import laurcode.com.retire.models.LicenseType;
 import timber.log.Timber;
 
 /**
@@ -80,10 +78,6 @@ public class MainApplication extends Application {
 
             LeakCanary.install(this);
         }
-
-        // Enum initialisation
-        LicenseType.addLicenseTypesToMap();
-        Category.addCategoriesToMap();
 
         // ViewModels initialisation
         viewModels = new HashMap<>();

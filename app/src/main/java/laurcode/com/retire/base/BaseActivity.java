@@ -34,7 +34,7 @@ import timber.log.Timber;
 
 @SuppressWarnings("unused")
 public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseViewModel,
-        P extends BasePresenter<BaseActivity, VM>> extends AppCompatActivity implements BaseView, BaseFragment.Callback {
+        P extends BasePresenter> extends AppCompatActivity implements BaseView, BaseFragment.Callback {
 
     protected DB binding;
 
