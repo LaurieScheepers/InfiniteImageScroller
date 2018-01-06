@@ -11,7 +11,5 @@ import laurcode.com.retire.main.viewmodel.MainViewModel;
  */
 
 public interface IMainPresenter extends Presenter<IMainView, MainViewModel> {
-    void showPacmanProgress();
-
-    void hidePacmanProgress();
+    // TODO what do we need?
 }

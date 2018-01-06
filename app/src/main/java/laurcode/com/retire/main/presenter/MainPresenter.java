@@ -14,16 +14,6 @@ public class MainPresenter extends BasePresenter<IMainView, MainViewModel> imple
 
     @Override
     public void loadData() {
-        // TODO here we load the photos from Realm on a background thread and observe on the main thread
-    }
-
-    @Override
-    public void showPacmanProgress() {
-        getView().showPacmanProgress();
-    }
-
-    @Override
-    public void hidePacmanProgress() {
-        getView().showPacmanProgress();
+        // TODO any data to be loaded?
     }
 }

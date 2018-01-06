@@ -9,10 +9,5 @@ import laurcode.com.retire.base.BaseView;
  */
 
 public interface IMainView extends BaseView {
-
-    void onEndOfListReached();
-
-    void showPacmanProgress();
-
-    void hidePacmanProgress();
+    // TODO any view related methods?
 }

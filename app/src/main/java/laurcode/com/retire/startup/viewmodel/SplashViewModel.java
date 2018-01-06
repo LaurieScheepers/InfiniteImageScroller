@@ -13,30 +13,5 @@ import laurcode.com.retire.BR;
  */
 
 public class SplashViewModel extends BaseObservable {
-
-    @Bindable
-    public @DrawableRes int evolutionImageResId;
-
-    @Bindable
-    public String blackFridayUrl;
-
-    @Bindable
-    public int getEvolutionImageResId() {
-        return evolutionImageResId;
-    }
-
-    public void setEvolutionImageResId(@DrawableRes int evolutionImageResId) {
-        this.evolutionImageResId = evolutionImageResId;
-        notifyPropertyChanged(BR.evolutionImageResId);
-    }
-
-    @Bindable
-    public String getBlackFridayUrl() {
-        return blackFridayUrl;
-    }
-
-    public void setBlackFridayUrl(String blackFridayUrl) {
-        this.blackFridayUrl = blackFridayUrl;
-        notifyPropertyChanged(BR.blackFridayUrl);
-    }
+    // TODO do we need anything for the splash view model?
 }

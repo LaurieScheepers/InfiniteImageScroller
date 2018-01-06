@@ -9,13 +9,16 @@ import laurcode.com.retire.base.BaseActivity;
 import laurcode.com.retire.base.BaseFragment;
 import laurcode.com.retire.base.BasePresenter;
 import laurcode.com.retire.base.BaseViewModel;
+import laurcode.com.retire.databinding.ActivityMainBinding;
+import laurcode.com.retire.main.presenter.MainPresenter;
+import laurcode.com.retire.main.viewmodel.MainViewModel;
 
 /**
  * The Main Activity of this app. This is the activity that contains the infinite scrolling of images retrieved from 500px API
  * <br><br>
  * Created by lauriescheepers on 2017/11/06.
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel, MainPresenter> implements IMainView {
 
     @Override
     protected int getLayoutResId() {
@@ -24,36 +27,30 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void init(Bundle savedInstanceState) {
-        // Add the main fragment
-//        MainFragment mainFragment = new MainFragment();
-//
-//        addFragment(mainFragment);
+        // TODO what do we init?
     }
 
     @Override
     protected boolean isMvpvm() {
-        return false;
+        return true;
     }
 
     @Nullable
     @Override
     protected Class getPresenterClass() {
-        // MainActivity doesn't have a presenter. It only handles the toolbar and the fragment.
-        // The main fragment however, does have one
-        return null;
+        return MainPresenter.class;
     }
 
     @Nullable
     @Override
     protected Class getViewModelClass() {
-        // MainActivity doesn't have a view model. It only handles the toolbar and the fragment.
-        // The main fragment however, does have one.
-        return null;
+        return MainViewModel.class;
     }
 
     @Override
-    protected void bindToActivity(ViewDataBinding binding, BaseViewModel viewModel, BasePresenter presenter) {
-        // Main activity isn't MVPVM, so ignore
+    protected void bindToActivity(ActivityMainBinding binding, MainViewModel viewModel, MainPresenter presenter) {
+        binding.setViewModel(viewModel);
+        binding.setPresenter(presenter);
     }
 
     @Override
@@ -68,21 +65,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onFragmentAttached(BaseFragment fragment) {
-        // Nothing needed here
+        // Nothing needed here as yet
     }
 
     @Override
     public void onFragmentDetached(BaseFragment fragment) {
-        // Nothing needed here
+        // Nothing needed here as yet
     }
 
     @Override
     public void onFragmentResumed(BaseFragment fragment) {
-        // Nothing needed here
+        // Nothing needed here as yet
     }
 
     @Override
     public void onChildFragmentAttached(BaseFragment childFragment) {
-        // TODO do we want to do something here?
+        // Nothing needed here as yet
     }
 }

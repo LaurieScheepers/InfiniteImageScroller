@@ -6,6 +6,8 @@ import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
+import android.support.annotation.IdRes;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -195,14 +197,14 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
      * Convenience method to add a fragment dynamically to its container layout
      * @param fragment the Fragment to add
      */
-    public void addFragment(@NonNull BaseFragment fragment) {
+    public void addFragment(@NonNull BaseFragment fragment, @IdRes int container) {
 
-        if (findViewById(R.id.fragment_container) != null) {
+        if (findViewById(container) != null) {
             String tag = fragment.getClass().getSimpleName();
             fragment.setFragmentTag(tag);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.add(R.id.fragment_container, fragment, fragment.getFragmentTag());
+            transaction.add(container, fragment, fragment.getFragmentTag());
             transaction.commit();
 
             currentFragmentTag = fragment.getFragmentTag();
@@ -215,9 +217,9 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
      * Convenience method to replace a fragment dynamically to its container layout
      * @param fragment the Fragment to add
      */
-    public void replaceFragment(@NonNull BaseFragment fragment, boolean addToBackStack) {
+    public void replaceFragment(@NonNull BaseFragment fragment, boolean addToBackStack, @IdRes int container) {
 
-        if (findViewById(R.id.fragment_container) != null) {
+        if (findViewById(container) != null) {
             String tag = fragment.getClass().getSimpleName();
             fragment.setFragmentTag(tag);
 
@@ -227,7 +229,7 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
                 transaction.addToBackStack(null);
             }
 
-            transaction.replace(R.id.fragment_container, fragment, fragment.getFragmentTag());
+            transaction.replace(container, fragment, fragment.getFragmentTag());
             transaction.commit();
 
             currentFragmentTag = fragment.getFragmentTag();
@@ -240,9 +242,9 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
      * Convenience method to get a fragment that was dynamically added to its container layout
      */
     @Nullable
-    public BaseFragment getFragment() {
+    public BaseFragment getFragment(@IdRes int container) {
 
-        if (findViewById(R.id.fragment_container) != null) {
+        if (findViewById(container) != null) {
             return (BaseFragment) getSupportFragmentManager().findFragmentByTag(currentFragmentTag);
         }
 

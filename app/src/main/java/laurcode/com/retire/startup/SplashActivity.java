@@ -1,9 +1,11 @@
 package laurcode.com.retire.startup;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,6 +19,7 @@ import butterknife.ButterKnife;
 import laurcode.com.retire.R;
 import laurcode.com.retire.databinding.ActivitySplashBinding;
 import laurcode.com.retire.main.MainApplication;
+import laurcode.com.retire.main.view.MainActivity;
 import laurcode.com.retire.startup.viewmodel.SplashViewModel;
 import laurcode.com.retire.util.SharedPreferencesUtil;
 import laurcode.com.retire.util.ViewUtil;
@@ -71,28 +74,25 @@ public class SplashActivity extends AppCompatActivity {
         // Bind Butterknife for easy access to the views in this activity
         ButterKnife.bind(this);
 
-        ViewUtil.fadeViewIn(retireHeading, new FadeInAnimationCompletedCallback() {
-            @Override
-            public void onCompleted() {
+        ViewUtil.fadeViewIn(retireHeading, () -> {
 
-                // Caption starts off empty
-                retireCaption.setText("");
+            // Caption starts off empty
+            retireCaption.setText("");
 
-                retireCaption.setAnimationListener(new AnimationListener() {
-                    @Override
-                    public void onAnimationEnd(HTextView hTextView) {
-                        ViewUtil.fadeViewIn(continueButton);
-                    }
-                });
+            retireCaption.setAnimationListener(hTextView -> ViewUtil.fadeViewIn(continueButton));
 
-                retireCaption.animateText(getText(R.string.splash_caption));
-            }
+            retireCaption.animateText(getText(R.string.splash_caption));
         });
+
+        continueButton.setOnClickListener(view -> goToMainActivity());
     }
 
     private void goToMainActivity() {
         SharedPreferencesUtil.setUserHasSeenSplash(this, true);
 
-        // TODO go to main activity
+        startActivity(new Intent(this, MainActivity.class));
+
+        // Finish splash activity so that it doesn't appear on the back stack
+        finish();
     }
 }

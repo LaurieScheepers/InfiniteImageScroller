@@ -27,14 +27,10 @@ import timber.log.Timber;
 public class MainApplication extends Application {
 
     /**
-     * An in-memory cache of view model objects. This will persist app-wide
+     * An in-memory cache of view model objects. This will persist app-wide,
+     * so that we can retrieve it when configuration changes happen and we don't lose any data
      */
     private static HashMap<Class, BaseObservable> viewModels;
-
-    /**
-     * We keep track of the pages app-wide (when app is launched it always starts at 0)
-     */
-    private static int currentPage = 1;
 
     @Override
     public void onCreate() {
@@ -85,13 +81,5 @@ public class MainApplication extends Application {
 
     public static void registerViewModel(Class clazz, BaseObservable viewModel) {
         viewModels.put(clazz, viewModel);
-    }
-
-    public static int getCurrentPage() {
-        return currentPage;
-    }
-
-    public static void incrementCurrentPage() {
-        currentPage++;
     }
 }
