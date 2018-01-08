@@ -34,6 +34,8 @@ import laurcode.com.retire.util.callbacks.FadeInAnimationCompletedCallback;
 @SuppressWarnings("FieldCanBeLocal")
 public class SplashActivity extends AppCompatActivity {
 
+    // TODO fix memory leak here, something weird holds on to a context. Figure out what it is.
+
     private SplashViewModel splashViewModel;
 
     @BindView(R.id.root_container)
