@@ -4,4 +4,38 @@
     <!-- Splash -->
     <string name="splash_caption">In Comfort</string>
     <string name="splash_button_text">SHOW ME HOW</string>
+
+    <!-- Input headings -->
+    <string name="current_funds_heading">Current Fund Values</string>
+    <string name="monthly_contributions_heading">Monthly Contributions</string>
+    <string name="Increases_in_contributions_heading">Increases in contributions</string>
+    <string name="investment_return_heading">Investment Return</string>
+    <string name="inflation_rate_heading">Inflation Rate</string>
+    <string name="term_to_retirement_heading">Term to Retirement <b>(N)</b></string>
+    <string name="term_after_retirement_heading">Term After Retirement <b>(n)</b></string>
+    <string name="monthly_income_required_after_retirement">Monthly Income required after retirement</string>
+    <string name="monthly_income_required_after_explanation">Required monthly income if you want to draw less than the maximum income to achieve some capital retention after..</string>
+
+    <!-- Input explanations -->
+    <string name="current_funds_explanation">Balance of investment capital funds already accumulated up to this point.</string>
+    <string name="monthly_contributions_explanation">Future monthly contributions (payments) to the investment at the end of each month.</string>
+    <string name="Increases_in_contributions_explanation">Annual increases in contributions up to retirement.</string>
+    <string name="investment_return_explanation">Interest rate. (ROI) Return on investment. Effective annual rate. Example. A savings account offers interest of 7% pa compounded monthly.  Annual effective = (1+7%/12)^12 – 1 = 7.229% pa</string>
+    <string name="inflation_rate_explanation">Annual increases after retirement to keep in tread with inflation.</string>
+    <string name="term_to_retirement_explanation">Term to retirement. (Pre-retirement accumulation phase)</string>
+    <string name="term_after_retirement_explanation">Term after retirement that a monthly withdrawal is required for. (Retirement drawdown phase). Usually life expectancy of surviving spouse.</string>
+
+    <!-- Output headings-->
+    <string name="present_value_of_capital_accumalated_at_retirement_heading">Present value of capital accumulated at retirement </string>
+    <string name="maximum_sustainable_monthly_income_provided_heading">Maximum sustainable monthly income provideds</string>
+    <string name="remaining_balance_of_capitable_after_N_plus_n_heading">Maximum sustainable monthly income provideds</string>
+    <string name="remaining_balance_of_capitable_after_N_plus_n_enxplanational">Present value (inflation adjusted) of the projected future value at retirement after <b>N + n</b> years ..</string>
+
+    <!-- Output j -->
+    <string name="present_value_of_capital_accumalated_at_retirement_explanation">Present value (inflation adjusted) of the projected future value at retirement after (N) years.</string>
+    <string name="maximum_sustainable_monthly_income_provided_explanation">Maximum monthly annuity/income that your accumulated funds can sustain after N years for n years, until the capital balance is depleted. This is Inflation adjusted)</string>
+    `Present value (inflation adjusted) of the remaining capital after (N+n) years.
+    <string name="remaining_balance_of_capitable_after_N_plus_n_explanational">Present value (inflation adjusted) of the projected future value at retirement after (N) years..</string>
+    <string name="remaining_balance_of_capital_after_N_plus_n_years"> Present value (inflation adjusted) of the remaining capital after <b>N + n</b> years..</string>
+
 </resources>

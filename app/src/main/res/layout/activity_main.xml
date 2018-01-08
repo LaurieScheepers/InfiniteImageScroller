@@ -22,16 +22,17 @@
 
         <!-- Insert edit forms here -->
 
-        <TextView
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/current_funds_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/TextStyle.IndieFlower.Display2"
-            android:textColor="@color/black"
-            android:text="This is the best Retirement app!"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:layout_marginLeft="@dimen/margin_huge"
-            android:layout_marginRight="@dimen/margin_huge"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/current_funds_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
 
     </RelativeLayout>
 
