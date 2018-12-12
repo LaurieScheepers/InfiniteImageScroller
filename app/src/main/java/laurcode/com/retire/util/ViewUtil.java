@@ -294,7 +294,7 @@ public final class ViewUtil {
     public static boolean doesViewExistInFragment(@NonNull Fragment fragment, @IdRes int viewId) {
 
         if (fragment.getView() == null) {
-            CrashUtil.crashAppOnPurpose("Fragment is not ready yet. onCreateView() must be called before getting a view in the fragment by its id.");
+            Timber.e("Fragment is not ready yet. onCreateView() must be called before getting a view in the fragment by its id.");
             return false;
         }
 
@@ -343,7 +343,7 @@ public final class ViewUtil {
         if (view != null) {
             showViewInFragment(view);
         } else {
-            CrashUtil.crashAppOnPurpose("View does not exist in activity " + activity.getClass().getSimpleName());
+            Timber.e("View does not exist in activity " + activity.getClass().getSimpleName());
         }
     }
 
@@ -361,7 +361,7 @@ public final class ViewUtil {
         if (view != null) {
             showViewInFragment(view);
         } else {
-            CrashUtil.crashAppOnPurpose("View does not exist in fragment" + fragment.getClass().getSimpleName());
+            Timber.e("View does not exist in fragment" + fragment.getClass().getSimpleName());
         }
     }
 
@@ -379,7 +379,7 @@ public final class ViewUtil {
         if (view != null) {
             hideView(view);
         } else {
-            CrashUtil.crashAppOnPurpose("View does not exist in activity " + activity.getClass().getSimpleName());
+            Timber.e("View does not exist in activity " + activity.getClass().getSimpleName());
         }
     }
 
@@ -397,7 +397,7 @@ public final class ViewUtil {
         if (view != null) {
             hideView(view);
         } else {
-            CrashUtil.crashAppOnPurpose("View does not exist in fragment" + fragment.getClass().getSimpleName());
+            Timber.e("View does not exist in fragment" + fragment.getClass().getSimpleName());
         }
     }
 

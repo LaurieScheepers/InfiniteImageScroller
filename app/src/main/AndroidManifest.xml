@@ -6,17 +6,13 @@
     package="laurcode.com.retire">
 
     <!-- Permissions -->
-    <!-- This is not an offline app - we get pictures from the internet-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- We need to keep everything woke when the sync service runs -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!-- Application-wide config. Due to the demo purposes of this app the following constraints are applied:
+    <!-- Application-wide config. The following constraints are applied:
          1. No cloud backup
          2. No RTL - only English is used
-         3. No Google App Indexing - it's not going to be released
+         3. No Google App Indexing
      -->
     <application
         android:allowBackup="false"
@@ -31,7 +27,7 @@
 
         <!-- MainActivity contains the stream of freshest photos -->
         <activity
-            android:name="laurcode.com.retire.main.view.MainActivity"
+            android:name="laurcode.com.retire.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
         </activity>
@@ -51,11 +47,8 @@
         <!-- Fabric API key metadata -->
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="b5603d69afa768e1a9d3602d95ff0106b83ed7cd" />/
+            android:value="b5603d69afa768e1a9d3602d95ff0106b83ed7cd" />
 
-        <service
-            android:name="laurcode.com.retire.sync.SyncService"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@ apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         // Normal things
@@ -17,8 +17,6 @@ android {
 
         // Build config fields used across the app
         buildConfigField("boolean", "RELEASE", "false") // RELEASE config field - default is false, as debug build type is the default
-        buildConfigField("String", "CONSUMER_KEY_500_PX", '"YoSDf9dO2YaTIAbZ6SSmYBJajTZbBO56VrQiJJBq"') // In an actual production app, this key would ideally already be encrypted
-        buildConfigField("String", "CONSUMER_SECRET_500_PX", '"BU78cIbsVtfcupCMDDc8oHXmGWqbPudQuJmGBmdE"') // See above comment
 
         vectorDrawables.useSupportLibrary = true    // We use vectors as resources in this app
     }
@@ -34,7 +32,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    // Build types for the app. As this is just a demo app, we only have two - debug and release, and I'm not going to add application id suffixes
+    // Build types for the app - debug and release
     buildTypes {
 
         release {
@@ -54,11 +52,6 @@ android {
             debuggable true
             useProguard false
         }
-    }
-
-    productFlavors {
-        // Here one can add "flavors", customizing a build for a specific purpose (like different app application id's)
-        // Commonly used for "whitelabel" apps. But not required here.
     }
 }
 
@@ -87,11 +80,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Normal support library stuff auto-generated when starting a new project PLUS a few others, like design and card view
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'com.android.support:support-v4:27.0.2'
-    implementation 'com.android.support:design:27.0.2'
-    implementation "com.android.support:support-compat:27.0.2"
-    implementation 'com.android.support:cardview-v7:27.0.2'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation "com.android.support:support-compat:27.1.1"
+    implementation 'com.android.support:cardview-v7:27.1.1'
 
     // Normal test stuff, junit and espresso, auto-generated when starting a new project.
     // But for the purposes of this project, I am not going to include any tests.
@@ -112,67 +105,14 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
-    // Stetho by Facebook, a debug bridge for Android apps, enabling the powerful Chrome Developer Tools
-    implementation 'com.facebook.stetho:stetho:1.5.0'
-
-    // Stetho-Realm, a module enabling us to view Realm data in Stetho
-    implementation 'com.uphyca:stetho_realm:2.2.1'
-
     // Retrofit, used as an HTTP client
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-
-    // RxJava2 Java and Android-specific bindings
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
-    implementation 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
-
-    // Retrofit 2 adapter for RxJava 2
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-
-    // GSON
-    implementation 'com.google.code.gson:gson:2.8.0'
-
-    // GSON converter, used to serialize to and from JSON
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-
-    // OKHttp logging interceptor, to have detailed logs about API requests and responses
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
-
-    // Leakcanary by Square, a memory leak detection library
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6-SNAPSHOT'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6-SNAPSHOT'
-
-    // Generates classes containing the names of a RealmObject's fields
-    annotationProcessor 'dk.ilios:realmfieldnameshelper:1.1.1'
-
-    // Eventbus, as a way to pass events to any anonymous listener. Especially useful for communicating between threads
-    implementation 'org.greenrobot:eventbus:3.0.0'
-
-    // Binding collection adapter. Provides an easy way to bind collections to list views and recycler views
-    implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.2.0'
-    implementation 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.2.0'
-
-    // Glide, the best image loading library
-    implementation 'com.github.bumptech.glide:glide:4.1.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
-
-    // Facebook's Shimmer library, shows a shimmer animation when something is loading
-    implementation 'com.facebook.shimmer:shimmer:0.1.0@aar'
 
     // KenBurnsView, for slowly panning images, creating the Ken Burns effect
     implementation 'com.flaviofaria:kenburnsview:1.0.7'
 
-    // Rebound by Facebook, for "spring" physics effects
-    implementation 'com.facebook.rebound:rebound:0.3.8'
-
     // HTextView animations, by Tom Hanks (not only a good actor it seems)
     implementation "com.hanks:htextview-base:0.1.2"
     implementation "com.hanks:htextview-typer:0.1.2"    // I only want the type-writer effect
-
-    // Easy Flip View, for views that can have two sides (better than Android's way of flipping cards)
-    implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:1.0.2'
-
-    // Nice loading animations
-    implementation 'com.wang.avi:library:2.1.3'
 
 }

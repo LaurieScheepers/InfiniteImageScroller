@@ -16,7 +16,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha04'
+        classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
 
         // Realm, the best mobile device database (at least IMHO)
         classpath "io.realm:realm-gradle-plugin:4.1.1"
